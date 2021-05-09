@@ -33,7 +33,7 @@ const data = {
   userName: 'Ian Kuria',
   gmail: 'ian@gmail.com',
   numberNotification: '3',
-  walaPoint: '2,500',
+  walaPoint: '+601-456-4500',
   orderHistory: true,
 };
 
@@ -87,20 +87,20 @@ const Profile = memo(() => {
       </ImageBackground>
       <TouchableOpacity style={styles.notificationView}>
 
-        <View style={styles.numberNotificationView}>
+        {/* <View style={styles.numberNotificationView}>
           <Text style={styles.numberNotification}>
             {data.numberNotification}
           </Text>
-        </View>
+        </View> */}
       </TouchableOpacity>
       <View style={styles.primaryMenu}>
         <View style={styles.walaPointView}>
           <Text style={styles.txtPoint}>
-            <Text style={styles.txtWalaPoint}>Street Points: </Text>
+            <Text style={styles.txtWalaPoint}></Text>
             {data.walaPoint}
           </Text>
           <TouchableOpacity style={styles.getMoreView}>
-            <Text style={styles.txtGetMore}>Get more</Text>
+            <Text style={styles.txtGetMore}>Edit info </Text>
             <View style={styles.svg}>
               <SvgRightArrow />
             </View>
@@ -130,11 +130,11 @@ const Profile = memo(() => {
           svg={<SvgProfile />}
           title={'My Profile'}
         />
-        <SecondMenuItem
+        {/* <SecondMenuItem
           onPress={onSavedArticle}
           svg={<SvgSavedArticle />}
           title={'Saved Article'}
-        />
+        /> */}
         <SecondMenuItem
           onPress={onSettings}
           svg={<SvgSettings />}
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 0,
   },
   txtGmail: {
-    fontFamily: 'Montserrat',
+    // fontFamily: 'Montserrat',
     fontSize: 14,
     color: colors.while,
     textShadowColor: 'rgba(0, 0, 0, 0.1)',

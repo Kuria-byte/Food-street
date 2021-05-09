@@ -10,11 +10,14 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import RestaurantList from '../screens/RestaurantListScreen';
+import RestaurantList from '../screens/RestaurantList';
 import UserProfile from '../screens/UserProfileScreen';
 import CartScreen from '../screens/CartScreen';
 import Profile from '../screens/TestUSerProfile';
 import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList } from '../types';
+import RestaurantItem from '../components/RestaurantItem';
+import Restaurants from '../screens/Restaurants';
+
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -29,15 +32,16 @@ export default function BottomTabNavigator() {
         name="Restaurants"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant" color={"green"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant" color={"#0EAD69"} />,
         }}
       />
+      
 
       <BottomTab.Screen
         name="Cart"
         component={TabThreeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart" color={"green"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart" color={"#0EAD69"} />,
         }}
       />
 
@@ -45,7 +49,7 @@ export default function BottomTabNavigator() {
         name="User"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person" color={"green"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person" color={"#0EAD69"} />,
         }}
       />
 
@@ -71,9 +75,12 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="RestaurantList"
         component={RestaurantList}
+  
         options={{ headerTitle: 'Food Street' }}
       />
     </TabOneStack.Navigator>
+    
+
   );
 }
 
