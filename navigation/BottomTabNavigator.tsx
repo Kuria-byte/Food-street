@@ -17,6 +17,10 @@ import Profile from '../screens/TestUSerProfile';
 import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList } from '../types';
 import RestaurantItem from '../components/RestaurantItem';
 import Restaurants from '../screens/Restaurants';
+import SvgLogo from '../svgs/Login/SvgLogo';
+import PKLogo from '../assets/Logo';
+import { ImageBackground } from 'react-native';
+import SvgFilter from '../svgs/SignUp/SvgFilter';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -32,16 +36,16 @@ export default function BottomTabNavigator() {
         name="Restaurants"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant" color={"#0EAD69"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant-outline" color={"#0EAD69"} />
         }}
       />
-      
+
 
       <BottomTab.Screen
         name="Cart"
         component={TabThreeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart" color={"#0EAD69"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart-outline" color={"#0EAD69"} />, tabBarBadge: 3
         }}
       />
 
@@ -49,7 +53,7 @@ export default function BottomTabNavigator() {
         name="User"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person" color={"#0EAD69"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person-outline" color={"#0EAD69"} />,
         }}
       />
 
@@ -75,11 +79,21 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="RestaurantList"
         component={RestaurantList}
-  
-        options={{ headerTitle: 'Food Street' }}
+        options={{
+          headerStyle: {
+            backgroundColor: '#249843',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }, headerTitle:"PK FoodStreet" 
+        }}
+
+
       />
+
     </TabOneStack.Navigator>
-    
+
 
   );
 }
@@ -92,7 +106,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="UserProfile"
         component={Profile}
-        options={{ headerTitle: 'My Account ' }}
+        options={{ headerTitle: 'My Account ', headerShown: false }}
       />
     </TabTwoStack.Navigator>
   );

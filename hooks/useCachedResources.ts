@@ -18,6 +18,7 @@ export default function useCachedResources() {
           ...Ionicons.font,
           'Montserrat': require('../assets/fonts/Montserrat-Regular.ttf'),
           'Montserrat-Bold': require('../assets/fonts/Montserrat-Bold.ttf'),
+          'Montserrat-Medium': require('../assets/fonts/Montserrat-Medium.ttf'),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

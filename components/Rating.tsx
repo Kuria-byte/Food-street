@@ -20,5 +20,5 @@ const Rating = (props: InRateProps) => {
 export default Rating;
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row' , fontSize: 2},
+  container: { flexDirection: 'row' , },
 });

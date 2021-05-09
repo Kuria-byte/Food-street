@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   txtTitle: {
-    fontFamily: FONTS.Montserrat.Medium,
+    fontFamily: "Montserrat",
     fontSize: 12,
     color: colors.title,
     marginTop: 12,

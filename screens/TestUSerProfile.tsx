@@ -53,7 +53,7 @@ const Profile = memo(() => {
   }, [navigation]);
 
   const onMyProfile = useCallback(() => {
-    navigation.navigate(ROUTES.MyProfile);
+    navigation.navigate(ROUTES.MyProfileEdit);
   }, [navigation]);
 
   const onSavedArticle = useCallback(() => {

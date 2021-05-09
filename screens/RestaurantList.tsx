@@ -1,5 +1,5 @@
 import React, { memo, useCallback } from 'react';
-import { Text, StyleSheet, FlatList, View } from 'react-native';
+import { Text, TextInput, StyleSheet, FlatList, View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import RestaurantItem from '../components/RestaurantItem';
@@ -8,35 +8,37 @@ import FONTS from '../assets/ultis/fonts';
 import keyExtractor from '../assets/ultis/KeyExtractor';
 import CategorySlider from '../components/CategorySlider';
 import CustomButton from '../components/CustomButton';
+import { widthScreen } from '../assets/ultis/layout';
+import SvgFilterSmall from '../svgs/Explorer/SvgFilterSmall';
 
 const data = [
   {
     img: require('../assets/Community/LowCarb.png'),
-    title: 'Carbs',
+    title: 'Traditional',
   },
   {
     img: require('../assets/Community/HighProtein.png'),
-    title: 'Beef',
+    title: 'Pizza',
   },
   {
     img: require('../assets/Community/Vegetarian.png'),
-    title: 'Vegean',
+    title: 'Chinese',
   },
   {
     img: require('../assets/Community/HighProtein.png'),
-    title: 'Healthy',
+    title: 'Sides',
   },
   {
     img: require('../assets/Community/Vegetarian.png'),
-    title: 'Vegetan',
+    title: 'Desserts',
   },
   {
     img: require('../assets/Community/LowCarb.png'),
-    title: 'Rice',
+    title: 'Bevarages',
   },
   {
     img: require('../assets/Community/Vegetarian.png'),
-    title: 'Vegetan',
+    title: 'Starters',
   },
 ];
 
@@ -81,14 +83,17 @@ const data1 = [
 const RestaurantLists = memo(() => {
   const renderItem = useCallback(({ item }) => {
     const { img, title } = item;
-    return <CategorySlider img={img} title={title} />;
+    return <View>
+      <CategorySlider img={img} title={title} />
+     <View style={styles.category}>
+       <Text style={styles.categoryText} >{title}</Text>
+     </View>
+    </View>
 
-    return(
-      <Text> Category</Text>
-  )
+
 
   }
-  ,  []);
+    , []);
 
   const renderItem1 = useCallback(({ item }) => {
     const { img, title, tag, time, id } = item;
@@ -108,6 +113,7 @@ const RestaurantLists = memo(() => {
     return (
       <>
         <Text style={styles.txtMayYouLike}>Browse Category</Text>
+
         <FlatList
           contentContainerStyle={styles.contentContainerStyleFlatList}
           horizontal={true}
@@ -116,21 +122,26 @@ const RestaurantLists = memo(() => {
           renderItem={renderItem}
           keyExtractor={keyExtractor}
         />
+        <View style={styles.searchBar}>
+
+          <TextInput
+            style={styles.input}
+            inlineImageLeft='search_icon'
+            placeholder={"Search restaurants ..."}
+          />
+
+        </View>
+
         <Text style={styles.txtHottest}>20 Restautants Near You</Text>
       </>
     );
   };
 
-  // return(
-  
-  //   <SearchBar
-  //       placeholder="Type Here..."
-  //       onChangeText={() =>{ console.log("searched")}}
-  //       value={"search"}
-  //     />
- 
 
-  // );
+
+
+
+
 
   return (
     <View style={styles.container}>
@@ -153,14 +164,58 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.backgroundApp,
   },
-  customButton: {
-    flex: 1,
-    backgroundColor: colors.backgroundApp,
+  category:{
+    marginTop:6,
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center",
+ 
+    
   },
+  categoryText:{
+    fontFamily: "Montserrat",
+    fontWeight: '600',
+    fontSize: 12,
+    textAlign: 'center',
+    marginLeft: -1,
+  }
+  ,
+  input: {
+    height: 40,
+    fontFamily: "Montserrat",
+    fontWeight: '400',
+    paddingLeft: 15,
+    fontSize: 14,
+    color: colors.title,
+    marginLeft: 15,
+    marginBottom: 15,
+    borderWidth: 2,
+    marginTop: 10,
+    borderRadius: 6,
+    minHeight: 45,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 0,
+  },
+  searchBar: {
+    marginTop: 15,
+    marginBottom: -17,
+    marginRight: 15,
+    paddingRight: 15,
+    width: widthScreen,
+
+
+  },
+
   txtMayYouLike: {
     fontFamily: "Montserrat",
     fontWeight: '600',
-    fontSize: 14,
+    fontSize: 13,
     color: colors.title,
     marginLeft: 15,
     marginBottom: 15,

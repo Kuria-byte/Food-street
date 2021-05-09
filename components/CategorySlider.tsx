@@ -21,7 +21,10 @@ const CategorySlider = (props: Props) => {
 
         <View style={styles.categorySlider}  >
             <ImageBackground source={props.img} style={styles.imgBackGround} />
+        
          </View>
+         
+
     );
 
 };
@@ -49,6 +52,7 @@ const styles = StyleSheet.create({
         borderColor: "green"
 
     },
+   
     txtTitle: {
         fontFamily: "Montserrat-Bold",
         fontSize: 16,

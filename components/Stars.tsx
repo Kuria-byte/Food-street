@@ -25,5 +25,5 @@ const StarIcon = memo((props: StarIconProps) => {
 export default StarIcon;
 
 const styles = StyleSheet.create({
-  star: {marginLeft: 3},
+  star: {marginLeft: 3,fontSize: 2},
 });

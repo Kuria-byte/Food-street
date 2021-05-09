@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   txtUnit: {
     fontSize: 14,
     lineHeight: 17,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Montserrat",
     color: '#1D1E2C',
   },
   rateView: {
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   txtTag: {
-    // fontFamily: "Montserrat-Regular",
+    fontFamily: "Montserrat",
     fontSize: 12,
     color: colors.title,
     fontStyle: 'normal',
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   txtTime: {
-    // fontFamily: "Montserrat-Regular",
+    fontFamily: "Montserrat",
     fontSize: 12,
     color: colors.gray0,
     fontWeight: '500',
