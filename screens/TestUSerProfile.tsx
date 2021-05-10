@@ -126,7 +126,7 @@ const Profile = memo(() => {
       </View>
       <View style={styles.secondMenu}>
         <SecondMenuItem
-          onPress={onMyProfile}
+          onPress={navigation.navigate('MyProfileEdit', { screen: 'MyProfileEdit' })}
           svg={<SvgProfile />}
           title={'My Profile'}
         />

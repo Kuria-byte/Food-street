@@ -14,13 +14,15 @@ import RestaurantList from '../screens/RestaurantList';
 import UserProfile from '../screens/UserProfileScreen';
 import CartScreen from '../screens/CartScreen';
 import Profile from '../screens/TestUSerProfile';
-import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList } from '../types';
+import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList, MyProfileEditScreenParamList } from '../types';
 import RestaurantItem from '../components/RestaurantItem';
 import Restaurants from '../screens/Restaurants';
 import SvgLogo from '../svgs/Login/SvgLogo';
 import PKLogo from '../assets/Logo';
 import { ImageBackground } from 'react-native';
 import SvgFilter from '../svgs/SignUp/SvgFilter';
+import MyProfileEdit from '../screens/MyProfileEdit';
+import RestaurantMenu from '../screens/RestaurantMenu';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -119,9 +121,37 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={CartScreen}
-        options={{ headerTitle: 'Cart ' }}
+        component={RestaurantMenu}
+        options={{ headerTitle: 'Restaurant ', headerShown: true }}
       />
     </TabThreeStack.Navigator>
   );
 }
+
+
+const TabFourStack = createStackNavigator<MyProfileEditScreenParamList>();
+
+function TabFourNavigator() {
+  return (
+    <TabFourStack.Navigator>
+      <TabFourStack.Screen
+        name="MyProfileEdit"
+        component={MyProfileEdit}
+        options={{ headerTitle: 'My Profile ', headerShown: false }}
+      />
+    </TabFourStack.Navigator>
+  );
+}
+
+// const ProfileScreenStack = createStackNavigator<MyProfileEditScreenParamList>();
+// function MyProfileNavigator() {
+//   return (
+//     <ProfileScreenStack.Navigator>
+//       <ProfileScreenStack.Screen
+//         name="MyProfileEdit"
+//         component={MyProfileEdit}
+//         options={{ headerShown: false }}
+//       />
+//     </ProfileScreenStack.Navigator>
+//   )
+// }

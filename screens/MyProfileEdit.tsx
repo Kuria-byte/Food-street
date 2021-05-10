@@ -13,7 +13,7 @@ import FormTextInput from '../components/TextInput';
 import SvgCamera from '../svgs/ProfileEdit/SvgCamera';
 
 const data = {
-  avatar: require('app/assets/MyProfile/avatar.png'),
+  avatar: require('../assets/Profile/avatar.png'),
   gender: 'Mrs',
   firstName: 'Ian',
   lastName: 'Kuria',

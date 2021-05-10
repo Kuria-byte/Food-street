@@ -22,6 +22,10 @@ export type UserProfileScreenParamList = {
   UserProfile: undefined;
 };
 
+export type MyProfileEditScreenParamList = {
+  MyProfileEdit: undefined;
+};
+
 export type CartScreenParamList = {
   Cart: undefined;
 };

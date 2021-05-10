@@ -12,15 +12,21 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          RestaurantList: {
             screens: {
-              TabOneScreen: 'one',
+              TabOneScreen: 'RestaurantList',
             },
           },
-          TabTwo: {
+          Cart: {
             screens: {
-              TabTwoScreen: 'two',
+              Cart: 'Cart',
             },
+          }, MyProfile: {
+            screens: {
+              MyProfileEdit: 'MyProfileEdit',
+              MyProfile: 'MyProfile'
+            },
+            
           },
         },
       },
