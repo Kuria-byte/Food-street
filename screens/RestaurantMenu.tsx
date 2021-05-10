@@ -8,6 +8,7 @@ import {
     TouchableOpacity,
     ScrollView,
 } from 'react-native';
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import { widthScreen } from '../assets/ultis/layout';
 import colors from '../assets/ultis/colors';
 import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
@@ -20,6 +21,7 @@ import SvgOrderHistory from '../svgs/Profile/SvgOrderHistory';
 import SvgPaymentMethod from '../svgs/Profile/SvgPaymentMethod';
 import SvgDeliveryAddress from '../svgs/Profile/SvgDeliveryAddress';
 import SecondMenuItem from '../screens/SecondMenuItem';
+import ExplorerOnTheMenu from '../screens/MenuItem'
 import { useNavigation } from '@react-navigation/native';
 import ROUTES from '../assets/ultis/routes';
 import SvgProfile from '../svgs/Profile/SvgProfile';
@@ -29,6 +31,8 @@ import SvgInvite from '../svgs/Profile/SvgInvite';
 import Rating from '../components/Rating';
 import SvgCalendar from '../svgs/SignUp/SvgCalendar';
 import SvgCookTime from '../svgs/SignUp/SvgCookTime';
+import RestaurantItem from '../components/RestaurantItem';
+import MenuList from '../screens/MenuList';
 
 
 const data = {
@@ -128,6 +132,7 @@ const RestaurantMenu = memo(() => {
             </View>
 
             <View style={styles.secondMenu}>
+     <MenuList/>
 
             </View>
         </ScrollView>
@@ -141,6 +146,15 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F7F7FB',
     },
+    tabarUnLine: {
+        backgroundColor: "#0EAD69",
+        height: 2
+    },
+    tabarText: {
+        fontFamily: FONTS.Montserrat.Regular,
+        fontSize: 12,
+        fontWeight: "400"
+    },
     svgText: {
         fontFamily: 'Montserrat',
         fontWeight: '300',
@@ -150,8 +164,8 @@ const styles = StyleSheet.create({
 
     }, Calendar: {
         marginTop: 0,
-        marginLeft: 30,
-        marginBottom: 8,
+        marginLeft: 30 ,
+        marginBottom: 5,
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
