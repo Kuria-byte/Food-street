@@ -24,9 +24,12 @@ import SvgFilter from '../svgs/SignUp/SvgFilter';
 import MyProfileEdit from '../screens/MyProfileEdit';
 import RestaurantMenu from '../screens/RestaurantMenu';
 import { LinearGradient } from 'expo-linear-gradient';
+import LogoTitle from '../components/HeaderLogo';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+
+
 
 
 
@@ -74,11 +77,17 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
+
+
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator<RestaurantScreenParamList>();
 
 function TabOneNavigator() {
+
+
+
+  
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
@@ -91,7 +100,7 @@ function TabOneNavigator() {
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }, headerTitle: "PK FoodStreet",
+          }, headerTitle: props => <LogoTitle  />,
           headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
             style={{ flex: 1 }}
             start={{ x: 0, y: 0 }}

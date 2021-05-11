@@ -4,7 +4,7 @@ import {getBottomSpace} from 'react-native-iphone-x-helper';
 
 import SvgFilterSmall from'../svgs/Explorer/SvgFilterSmall';
 import SvgCard from'../svgs/Explorer/SvgCard';
-import MenuItem from'../Screens/MenuItem';
+import MenuItem from'../screens/MenuItem';
 import SvgNodata from'../svgs/SvgNodataSearch';
 // import NoData from'app/components/NoData';
 import SvgOrderList from'../svgs/Explorer/SvgOrderList';

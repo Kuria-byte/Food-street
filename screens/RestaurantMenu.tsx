@@ -33,6 +33,9 @@ import SvgCalendar from '../svgs/SignUp/SvgCalendar';
 import SvgCookTime from '../svgs/SignUp/SvgCookTime';
 import RestaurantItem from '../components/RestaurantItem';
 import MenuList from '../screens/MenuList';
+import ScrollMenuTab from '../components/HorizontalMenuTab';
+import RestaurantSection from './SectionLIstRestaurant';
+import CategorySlider from '../components/CategorySlider';
 
 
 const data = {
@@ -43,6 +46,9 @@ const data = {
     walaPoint: 'Restaurant 1',
     orderHistory: true,
 };
+
+
+
 
 const RestaurantMenu = memo(() => {
     const navigation = useNavigation();
@@ -79,6 +85,7 @@ const RestaurantMenu = memo(() => {
         <ScrollView
             style={styles.container}
             showsVerticalScrollIndicator={false}
+            // stickyHeaderIndices={[]}
             bounces={false}
             contentContainerStyle={styles.contentContainerStyle}>
             <ImageBackground
@@ -120,9 +127,11 @@ const RestaurantMenu = memo(() => {
               
             </View>
 
-            <View style={styles.secondMenu}>
-     <MenuList/>
-
+            <View  style={styles.MenuTab}>
+             
+     {/* <MenuList/> */}
+   <ScrollMenuTab/>
+   {/* <RestaurantSection/> */}
             </View>
         </ScrollView>
     );
@@ -143,6 +152,9 @@ const styles = StyleSheet.create({
         fontFamily: FONTS.Montserrat.Regular,
         fontSize: 12,
         fontWeight: "400"
+    },MenuTab:{
+        width: widthScreen,
+        paddingTop: 18
     },
     svgText: {
         fontFamily: 'Montserrat',
@@ -279,6 +291,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.8,
         marginTop: 16,
+    
     },
     contentContainerStyle: {
         paddingBottom: getBottomSpace() + 56,

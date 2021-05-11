@@ -10,11 +10,81 @@ import CategorySlider from '../components/CategorySlider';
 import CustomButton from '../components/CustomButton';
 import { widthScreen } from '../assets/ultis/layout';
 import SvgFilterSmall from '../svgs/Explorer/SvgFilterSmall';
+import MenuItem from '../screens/MenuItem';
+import SvgOrderList from'../svgs/Explorer/SvgOrderList';
+import SvgOrderList1 from'../svgs/Explorer/SvgOrderList1';
+import SvgOrderList2 from'../svgs/Explorer/SvgOrderList2';
+import SvgOrderList3 from'../svgs/Explorer/SvgOrderList3';
+import SvgOrderList4 from'../svgs/Explorer/SvgOrderList4';
+import SvgOrderList5 from'../svgs/Explorer/SvgOrderList5';
+import MenuCategorySlider from './Menuslider';
+
+
+const dataListOrder = [
+  {
+    id: '0',
+    name: 'Boneless Grilled Chicken & Biriyani Rice',
+    rate: 4.5,
+    svgName: <SvgOrderList />,
+  },
+  {
+    id: '1',
+    name: 'Za’atar Chicken and Couscous',
+    rate: 4.5,
+    svgName: <SvgOrderList2 />,
+  },
+  {
+    id: '2',
+    name: 'Sweet and Smoky Chicken Breasts',
+    rate: 4.5,
+    svgName: <SvgOrderList3 />,
+  },
+  {
+    id: '3',
+    name: 'Mexican Chicken and Rice Bowl',
+    rate: 4.5,
+    svgName: <SvgOrderList1 />,
+  },
+  {
+    id: '4',
+    name: 'Crispy Honey Chicken Cutlets',
+    rate: 4.5,
+    svgName: <SvgOrderList5 />,
+  },
+  {
+    id: '5',
+    name: 'Cheesy Chicken Shepherd’s Pie',
+    rate: 4.5,
+    svgName: <SvgOrderList4 />,
+  },
+  {
+    id: '6',
+    name: 'Cheesy Chicken Shepherd’s Pie',
+    rate: 4.5,
+    svgName: <SvgOrderList4 />,
+  },
+  {
+    id: '7',
+    name: 'Cheesy Chicken Shepherd’s Pie',
+    rate: 4.5,
+    svgName: <SvgOrderList4 />,
+  },
+  {
+    id: '8',
+    name: 'Cheesy Chicken Shepherd’s Pie',
+    rate: 4.5,
+    svgName: <SvgOrderList4 />,
+  },
+];
 
 const data = [
   {
+    img: require('../assets/Community/Restaurant.jpg'),
+    title: 'All',
+  },
+  {
     img: require('../assets/Community/Traditional.jpg'),
-    title: 'Traditional',
+    title: 'Soups',
   },
   {
     img: require('../assets/Community/pizza.jpg'),
@@ -22,7 +92,7 @@ const data = [
   },
   {
     img: require('../assets/Community/noodles.jpg'),
-    title: 'Chinese',
+    title: 'Noodles',
   },
   {
     img: require('../assets/Community/rice.jpg'),
@@ -42,105 +112,50 @@ const data = [
   },
 ];
 
-const data1 = [
-  {
-    id: '0',
-    img: require('../assets/Community/restaurant6.jpg'),
-    title: 'Restaurant 1',
-    tag: ['#nutrition', '#lowcarb'],
-    time: 'Restaurant - Opened',
-  },
-  {
-    id: '1',
-    img: require('../assets/Community/restaurant2.jpg'),
-    title: 'Restaurant 2',
-    tag: ['#nutrition', '#lowcarb'],
-    time: 'Restaurant - Opened',
-  },
-  {
-    id: '2',
-    img: require('../assets/Community/Restaurant3.jpg'),
-    title: 'Restaurant 3',
-    tag: ['#nutrition', '#lowcarb'],
-    time: 'Restaurant - Opened',
-  },
-  {
-    id: '3',
-    img: require('../assets/Community/restaurant4.jpg'),
-    title: 'Restaurant 4',
-    tag: ['#nutrition', '#lowcarb'],
-    time: 'Restaurant - Closed',
-  },
-  {
-    id: '4',
-    img: require('../assets/Community/Restaurant5.jpg'),
-    title: 'Restaurant 5',
-    tag: ['#nutrition', '#lowcarb'],
-    time: 'Restaurant - Opened',
-  },
-];
 
-const RestaurantLists = memo(() => {
-  const renderItem = useCallback(({ item }) => {
+
+const ScrollMenuTab = memo(() => {
+    
+  const renderCategoryItem = useCallback(({ item }) => {
     const { img, title } = item;
-    return <View>
-      <CategorySlider img={img} title={title} />
+    return <View >
+    
+      <MenuCategorySlider img={img} title={title}/>
      <View style={styles.category}>
        <Text style={styles.categoryText} >{title}</Text>
      </View>
     </View>
-
-
-
   }
     , []);
 
-  const renderItem1 = useCallback(({ item }) => {
-    const { img, title, tag, time, id } = item;
-    return (
-      <RestaurantItem
-        id={id}
-        img={img}
-        title={title}
-        tag={tag}
-        time={time}
-        noSave={true}
-      />
-    );
-  }, []);
 
   const listHeaderComponent = () => {
     return (
       <>
-        <Text style={styles.txtMayYouLike}>Browse Category</Text>
-
+        <Text style={styles.txtMayYouLike}>Our Category</Text>
         <FlatList
           contentContainerStyle={styles.contentContainerStyleFlatList}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           data={data}
-          renderItem={renderItem}
+          renderItem={renderCategoryItem}
           keyExtractor={keyExtractor}
+           
         />
-        <View style={styles.searchBar}>
-
-          <TextInput
-            style={styles.input}
-            inlineImageLeft='search_icon'
-            placeholder={"Search restaurants ..."}
-          />
-
-        </View>
-
-        <Text style={styles.txtHottest}>20 Restautants Near You</Text>
+  
       </>
     );
   };
 
 
-
-
-
+  const renderMenuItem = useCallback(({ item }) => {
+;
+    return (
+      <MenuItem
+      svgName={item.svgName} rate={item.rate} name={item.name}
+      />
+    );
+  }, []);
 
 
   return (
@@ -149,20 +164,26 @@ const RestaurantLists = memo(() => {
         contentContainerStyle={styles.contentContainerStyle}
         ListHeaderComponent={listHeaderComponent}
         showsVerticalScrollIndicator={false}
-        data={data1}
-        renderItem={renderItem1}
+        data={dataListOrder}
+        renderItem={renderMenuItem}
         keyExtractor={keyExtractor}
+      
       />
     </View>
   );
 });
 
-export default RestaurantLists;
+export default ScrollMenuTab;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.backgroundApp,
+  },
+  MenuSlider:{
+height: 120,
+
+    backgroundColor: colors.while,
   },
   category:{
     marginTop:6,
@@ -222,6 +243,7 @@ const styles = StyleSheet.create({
   },
   contentContainerStyleFlatList: {
     paddingLeft: 16,
+    paddingBottom: 10
   },
   txtHottest: {
     fontFamily: "Montserrat",
