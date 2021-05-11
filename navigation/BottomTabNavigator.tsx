@@ -23,9 +23,12 @@ import { ImageBackground } from 'react-native';
 import SvgFilter from '../svgs/SignUp/SvgFilter';
 import MyProfileEdit from '../screens/MyProfileEdit';
 import RestaurantMenu from '../screens/RestaurantMenu';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+
+
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
@@ -88,7 +91,13 @@ function TabOneNavigator() {
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }, headerTitle:"PK FoodStreet" 
+          }, headerTitle: "PK FoodStreet",
+          headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
+            style={{ flex: 1 }}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }} />,
+
+
         }}
 
 

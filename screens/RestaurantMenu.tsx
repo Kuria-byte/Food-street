@@ -83,22 +83,11 @@ const RestaurantMenu = memo(() => {
             contentContainerStyle={styles.contentContainerStyle}>
             <ImageBackground
                 style={styles.imgBackGround}
-                source={require('../assets/Community/img.png')}>
-                {/* <View style={styles.avatarView}>
-          <Image source={data.avatar} />
-          <View style={styles.information}>
-            <Text style={styles.txtUserName}>{data.userName}</Text>
-            <Text style={styles.txtGmail}>{data.gmail}</Text>
-          </View>
-        </View> */}
+                source={require('../assets/Community/Restaurant.jpg')}>
+
             </ImageBackground>
             <TouchableOpacity style={styles.notificationView}>
-                {/* 
-        <View style={styles.numberNotificationView}>
-          <Text style={styles.numberNotification}>
-             {data.numberNotification} 
-          </Text>
-        </View> */}
+        
             </TouchableOpacity>
             <View style={styles.primaryMenu}>
                 <View style={styles.walaPointView}>

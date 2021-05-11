@@ -13,31 +13,31 @@ import SvgFilterSmall from '../svgs/Explorer/SvgFilterSmall';
 
 const data = [
   {
-    img: require('../assets/Community/LowCarb.png'),
+    img: require('../assets/Community/Traditional.jpg'),
     title: 'Traditional',
   },
   {
-    img: require('../assets/Community/HighProtein.png'),
+    img: require('../assets/Community/pizza.jpg'),
     title: 'Pizza',
   },
   {
-    img: require('../assets/Community/Vegetarian.png'),
+    img: require('../assets/Community/noodles.jpg'),
     title: 'Chinese',
   },
   {
-    img: require('../assets/Community/HighProtein.png'),
+    img: require('../assets/Community/rice.jpg'),
     title: 'Sides',
   },
   {
-    img: require('../assets/Community/Vegetarian.png'),
+    img: require('../assets/Community/cakes.jpg'),
     title: 'Desserts',
   },
   {
-    img: require('../assets/Community/LowCarb.png'),
+    img: require('../assets/Community/coffee1.jpg'),
     title: 'Bevarages',
   },
   {
-    img: require('../assets/Community/Vegetarian.png'),
+    img: require('../assets/Community/starters.jpg'),
     title: 'Starters',
   },
 ];
@@ -45,35 +45,35 @@ const data = [
 const data1 = [
   {
     id: '0',
-    img: require('../assets/Community/Img.png'),
+    img: require('../assets/Community/restaurant6.jpg'),
     title: 'Restaurant 1',
     tag: ['#nutrition', '#lowcarb'],
     time: 'Restaurant - Opened',
   },
   {
     id: '1',
-    img: require('../assets/Community/Img.png'),
+    img: require('../assets/Community/restaurant2.jpg'),
     title: 'Restaurant 2',
     tag: ['#nutrition', '#lowcarb'],
     time: 'Restaurant - Opened',
   },
   {
     id: '2',
-    img: require('../assets/Community/Img.png'),
+    img: require('../assets/Community/Restaurant3.jpg'),
     title: 'Restaurant 3',
     tag: ['#nutrition', '#lowcarb'],
     time: 'Restaurant - Opened',
   },
   {
     id: '3',
-    img: require('../assets/Community/Img.png'),
+    img: require('../assets/Community/Restaurant4.jpg'),
     title: 'Restaurant 4',
     tag: ['#nutrition', '#lowcarb'],
     time: 'Restaurant - Closed',
   },
   {
     id: '4',
-    img: require('../assets/Community/Img.png'),
+    img: require('../assets/Community/Restaurant5.jpg'),
     title: 'Restaurant 5',
     tag: ['#nutrition', '#lowcarb'],
     time: 'Restaurant - Opened',

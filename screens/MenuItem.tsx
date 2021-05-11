@@ -40,8 +40,7 @@ const MenuItem = memo((props: PropsItemList) => {
                 </View>
                 
                 <View style={styles.viewFooterContent}>
-                    <Text style={styles.Price}>Rs. 500  </Text>
-        
+                <Text style={styles.MenuDescription}>Rs. 500 </Text>
                     <TouchableOpacity onPress={isShowActive}>
                         <SvgAdd  />
                     </TouchableOpacity>
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
     MenuDescription:{
         fontSize: 12,
         color: 'green',
-        fontWeight: '550',
+        fontWeight: '500',
         fontFamily: FONTS.Montserrat.Medium,
         lineHeight: 14,
         paddingTop: 4
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
 
     },
     textName: {
-        fontSize: 14,
+        fontSize: 12,
         color: '#1D1E2C',
         fontWeight: '600',
         fontFamily: FONTS.Montserrat.Medium,
