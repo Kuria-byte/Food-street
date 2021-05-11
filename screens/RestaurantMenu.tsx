@@ -83,7 +83,7 @@ const RestaurantMenu = memo(() => {
             contentContainerStyle={styles.contentContainerStyle}>
             <ImageBackground
                 style={styles.imgBackGround}
-                source={require('../assets/Community/img@2x.png')}>
+                source={require('../assets/Community/img.png')}>
                 {/* <View style={styles.avatarView}>
           <Image source={data.avatar} />
           <View style={styles.information}>
