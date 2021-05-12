@@ -28,6 +28,7 @@ export default {
             screens: {
               UserProfile: 'UserProfile',
               MyProfileEdit: 'MyProfileEdit',
+              
             },
 
           }

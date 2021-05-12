@@ -15,6 +15,7 @@ export type BottomTabParamList = {
   Restaurants: undefined;
   User: undefined;
   Cart: undefined;
+  Orders:undefined
   MyProfileEdit:undefined
  
 };

@@ -17,6 +17,7 @@ import Profile from '../screens/MyUserAccount';
 import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList } from '../types';
 import { LinearGradient } from 'expo-linear-gradient';
 import LogoTitle from '../components/HeaderLogo';
+import NotFoundScreen from '../screens/NotFoundScreen';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -43,6 +44,14 @@ export default function BottomTabNavigator() {
         component={TabThreeNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart-outline" color={"#0EAD69"} />, tabBarBadge: 3
+        }}
+      />
+
+     <BottomTab.Screen
+        name="Orders"
+        component={TabFourNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-time-outline" color={"#0EAD69"} />,
         }}
       />
 
@@ -113,7 +122,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="UserProfile"
         component={Profile}
-        options={{ headerTitle: 'My Account ', headerShown: false }}
+        options={{ headerTitle: 'My Account ', headerShown: false,  }}
       />
     </TabTwoStack.Navigator>
   );
@@ -127,9 +136,29 @@ function TabThreeNavigator() {
       <TabThreeStack.Screen
         name="Cart"
         component={CartScreen}
-        options={{ headerTitle: 'Cart ', headerShown: true }}
+        options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
+        style={{ flex: 1 }}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }} />, }}
       />
     </TabThreeStack.Navigator>
+  );
+}
+
+const TabFourStack = createStackNavigator<BottomTabParamList>();
+
+function TabFourNavigator() {
+  return (
+    <TabFourStack.Navigator>
+      <TabFourStack.Screen
+        name="Orders"
+        component={NotFoundScreen}
+        options={{ headerTitle: 'Order History ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
+        style={{ flex: 1 }}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }} />, }}
+      />
+    </TabFourStack.Navigator>
   );
 }
 
