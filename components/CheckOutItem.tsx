@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import {
   Image,
   ImageSourcePropType,
@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import { Icon } from 'react-native-elements'
 import SvgOption from '../svgs/SvgOption';
-import FONTS from'../assets/ultis/fonts';
-import {widthScreen} from '../assets/ultis/layout';
+import FONTS from '../assets/ultis/fonts';
+import { widthScreen } from '../assets/ultis/layout';
 import SvgAdd from '../svgs/SvgAdd';
 import SvgSub from '../svgs/SignUp/SvgSub';
 import SvgCloseLinear from '../svgs/SvgCloseLinear';
@@ -23,24 +23,28 @@ interface RIProps {
 }
 const CheckOutItem = memo((props: RIProps) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <View style={styles.container}>
       <Image source={props.img} style={styles.img} />
       <View style={styles.info}>
         <View style={styles.flexRow}>
-          <Text style={styles.txtName}>{props.recipeName}</Text>
-          <TouchableOpacity style={styles.btnOption}>
-        
-          <Icon  size={20} color="red" name='trash' style={styles.minusBtn}
-  type='font-awesome' />
-          <Text style={styles.qtyText}> 2 </Text>
-          <Icon size={20} color="black" name='plus' style={styles.AddBtn}
-  type='font-awesome' />
-           
-          </TouchableOpacity>
+       
+          <Text numberOfLines={3} style={styles.txtName}>{props.recipeName}</Text>
+          <View style={styles.btnOption}>
+            <TouchableOpacity>
+              <Icon size={22} color="red" name='trash' style={styles.minusBtn}
+                type='font-awesome' />
+            </TouchableOpacity>
+            <Text style={styles.qtyText}> 2 </Text>
+            <TouchableOpacity>
+            <Icon size={22} color="black" name='plus' style={styles.AddBtn}
+              type='font-awesome' />
+            </TouchableOpacity>
+
+          </View>
         </View>
         <Text style={styles.txtNumServing}>Rs. 50 </Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 });
 
@@ -51,25 +55,25 @@ const styles = StyleSheet.create({
     height: 56,
     borderRadius: 8,
   },
-  AddBtn:{
+  AddBtn: {
     marginTop: 1,
     paddingLeft: 4
 
   },
-  minusBtn:{
+ 
+  minusBtn: {
     paddingRight: 4
 
-  }, qtyText:{
+  }, qtyText: {
     color: '#1D1E2C',
     fontSize: 12,
     marginTop: 2,
-   
     fontFamily: "Montserrat",
-    flex: 1,
+    
   },
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
+    // alignItems: 'center',
     width: widthScreen - 48,
     marginBottom: 16,
   },
@@ -90,8 +94,10 @@ const styles = StyleSheet.create({
   },
   btnOption: {
     padding: 0,
-    marginLeft: 16,
+    marginRight: 12,
     flexDirection: 'row',
+    height: 40,
+    width: 40
 
   },
   txtNumServing: {

@@ -26,7 +26,7 @@ const inTheBoxList = [
   {
     id: '2',
     img: require('../assets/Community/pizza.jpg'),
-    name: 'Sirloin with Chive Butter Sauce',
+    name: 'Chicken Pizza With Cheese Tortilla Wraps & Salsa',
     numServing: 2,
   },
 
@@ -61,31 +61,23 @@ const BoxSummary = memo(() => {
       step: 1,
     });
   }, [navigation]);
-  const onApply = useCallback(() => {}, []);
-  const onCheck = useCallback(() => {
-    setCheck(!isCheck);
-  }, [isCheck]);
+
 
   const onLayoutInput = useCallback((event) => {
     const layout = event.nativeEvent.layout;
     console.log('layout', layout);
     setOffset(layout.y);
   }, []);
-  const onFocus = useCallback(() => {
-    console.log('offsetYInput', offsetYInput);
-
-    
-
-    // listRef.current.scrollToOffset({offset: offsetYInput, animated: true});
-  }, [listRef, offsetYInput]);
+  // const onFocus = useCallback(() => {
+  //   console.log('offsetYInput', offsetYInput);
+  //   listRef.current.scrollToOffset({offset: offsetYInput, animated: true});
+  // }, [listRef, offsetYInput]);
 
   const _renderFooter = useCallback(() => {
     return (
       <View style={styles.containerFooter}>
    
-        {/* <View style={styles.discount} onLayout={onLayoutInput}>
-     
-        </View> */}
+    
         <Text style={[styles.txtTitle, {marginTop: 40}]}>Order Summary</Text>
         <View style={styles.summary}>
           <Text style={styles.txtContent}>Summary Cost</Text>
@@ -103,7 +95,7 @@ const BoxSummary = memo(() => {
         </View>
       </View>
     );
-  }, [onFocus, onApply, onChange, onCheck, isCheck, onLayoutInput]);
+  }, [onChange, isCheck]);
   return (
     <View style={styles.container}>
       <FlatList
@@ -117,7 +109,7 @@ const BoxSummary = memo(() => {
       />
       <CheckOutButton
         title={'Confirm Order'}
-        onPress={onConfirm}
+        onPress={onChange}
         style={styles.btnBtm}
       />
     </View>

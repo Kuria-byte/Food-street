@@ -14,10 +14,10 @@ import RestaurantList from '../screens/RestaurantList';
 
 import CartScreen from '../screens/CartScreen';
 import Profile from '../screens/MyUserAccount';
-import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList } from '../types';
+import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList, OrdersHistoryScreenParama } from '../types';
 import { LinearGradient } from 'expo-linear-gradient';
 import LogoTitle from '../components/HeaderLogo';
-import NotFoundScreen from '../screens/NotFoundScreen';
+import OrderHistory from '../screens/OrderHistory';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -145,14 +145,14 @@ function TabThreeNavigator() {
   );
 }
 
-const TabFourStack = createStackNavigator<BottomTabParamList>();
+const TabFourStack = createStackNavigator<OrdersHistoryScreenParama>();
 
 function TabFourNavigator() {
   return (
     <TabFourStack.Navigator>
       <TabFourStack.Screen
         name="Orders"
-        component={NotFoundScreen}
+        component={OrderHistory}
         options={{ headerTitle: 'Order History ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}

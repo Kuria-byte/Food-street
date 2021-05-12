@@ -28,6 +28,11 @@ export type UserProfileScreenParamList = {
   UserProfile: undefined;
 };
 
+
+export type OrdersHistoryScreenParama = {
+  Orders: undefined;
+};
+
 export type MyProfileEditScreenParamList = {
   MyProfileEdit: undefined;
 };

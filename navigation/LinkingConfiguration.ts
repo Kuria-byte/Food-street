@@ -30,8 +30,13 @@ export default {
               MyProfileEdit: 'MyProfileEdit',
               
             },
-
+          },
+          Orders:{
+            screens:{
+              Orders: 'Orders'
+            }
           }
+          
         },
       }, 
       //   MyProfileEdit: {
