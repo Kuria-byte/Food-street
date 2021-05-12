@@ -8,34 +8,17 @@ import {
     TouchableOpacity,
     ScrollView,
 } from 'react-native';
-import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import { widthScreen } from '../assets/ultis/layout';
 import colors from '../assets/ultis/colors';
 import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
 import FONTS from '../assets/ultis/fonts';
-
-import SvgRightArrow from '../svgs/Profile/SvgRightArrow';
-import PrimaryItem from '../screens/PrimaryItem';
-import SvgOrderHistory from '../svgs/Profile/SvgOrderHistory';
-
-import SvgPaymentMethod from '../svgs/Profile/SvgPaymentMethod';
-import SvgDeliveryAddress from '../svgs/Profile/SvgDeliveryAddress';
-import SecondMenuItem from '../screens/SecondMenuItem';
-import ExplorerOnTheMenu from '../screens/MenuItem'
 import { useNavigation } from '@react-navigation/native';
 import ROUTES from '../assets/ultis/routes';
-import SvgProfile from '../svgs/Profile/SvgProfile';
-import SvgSavedArticle from '../svgs/Profile/SvgSavedArticle';
-import SvgSettings from '../svgs/Profile/SvgSettings';
-import SvgInvite from '../svgs/Profile/SvgInvite';
 import Rating from '../components/Rating';
 import SvgCalendar from '../svgs/SignUp/SvgCalendar';
 import SvgCookTime from '../svgs/SignUp/SvgCookTime';
-import RestaurantItem from '../components/RestaurantItem';
-import MenuList from '../screens/MenuList';
 import ScrollMenuTab from '../components/HorizontalMenuTab';
-import RestaurantSection from './SectionLIstRestaurant';
-import CategorySlider from '../components/CategorySlider';
+
 
 
 const data = {
@@ -46,8 +29,6 @@ const data = {
     walaPoint: 'Restaurant 1',
     orderHistory: true,
 };
-
-
 
 
 const RestaurantMenu = memo(() => {
@@ -61,25 +42,7 @@ const RestaurantMenu = memo(() => {
         navigation.navigate(ROUTES.ProfilePaymentMethod);
     }, [navigation]);
 
-    const onProfileMyAddress = useCallback(() => {
-        navigation.navigate(ROUTES.ProfileMyAddress);
-    }, [navigation]);
 
-    const onMyProfile = useCallback(() => {
-        navigation.navigate(ROUTES.MyProfileEdit);
-    }, [navigation]);
-
-    const onSavedArticle = useCallback(() => {
-        navigation.navigate(ROUTES.ProfileSaveArticle);
-    }, [navigation]);
-
-    const onSettings = useCallback(() => {
-        navigation.navigate(ROUTES.ProfileSettings);
-    }, [navigation]);
-
-    const onProfileInvite = useCallback(() => {
-        navigation.navigate(ROUTES.ProfileInvite);
-    }, [navigation]);
 
     return (
         <ScrollView
@@ -94,7 +57,7 @@ const RestaurantMenu = memo(() => {
 
             </ImageBackground>
             <TouchableOpacity style={styles.notificationView}>
-        
+
             </TouchableOpacity>
             <View style={styles.primaryMenu}>
                 <View style={styles.walaPointView}>
@@ -124,14 +87,12 @@ const RestaurantMenu = memo(() => {
                     <Text style={styles.svgText}> 10:00 AM - 02:00 AM - Open now  </Text>
 
                 </View>
-              
+
             </View>
 
-            <View  style={styles.MenuTab}>
-             
-     {/* <MenuList/> */}
-   <ScrollMenuTab/>
-   {/* <RestaurantSection/> */}
+            <View style={styles.MenuTab}>
+                <ScrollMenuTab />
+                {/* <RestaurantSection/> */}
             </View>
         </ScrollView>
     );
@@ -152,7 +113,7 @@ const styles = StyleSheet.create({
         fontFamily: FONTS.Montserrat.Regular,
         fontSize: 12,
         fontWeight: "400"
-    },MenuTab:{
+    }, MenuTab: {
         width: widthScreen,
         paddingTop: 18
     },
@@ -165,7 +126,7 @@ const styles = StyleSheet.create({
 
     }, Calendar: {
         marginTop: 0,
-        marginLeft: 30 ,
+        marginLeft: 30,
         marginBottom: 5,
         flex: 1,
         flexDirection: 'row',
@@ -196,7 +157,7 @@ const styles = StyleSheet.create({
         textShadowRadius: 0,
     },
     txtGmail: {
-        // fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat',
         fontSize: 14,
         color: colors.while,
         textShadowColor: 'rgba(0, 0, 0, 0.1)',
@@ -291,7 +252,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.8,
         marginTop: 16,
-    
+
     },
     contentContainerStyle: {
         paddingBottom: getBottomSpace() + 56,

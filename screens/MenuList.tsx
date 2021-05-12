@@ -1,20 +1,14 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-
-import SvgFilterSmall from'../svgs/Explorer/SvgFilterSmall';
-import SvgCard from'../svgs/Explorer/SvgCard';
 import MenuItem from'../screens/MenuItem';
-import SvgNodata from'../svgs/SvgNodataSearch';
-// import NoData from'app/components/NoData';
 import SvgOrderList from'../svgs/Explorer/SvgOrderList';
 import SvgOrderList1 from'../svgs/Explorer/SvgOrderList1';
 import SvgOrderList2 from'../svgs/Explorer/SvgOrderList2';
 import SvgOrderList3 from'../svgs/Explorer/SvgOrderList3';
 import SvgOrderList4 from'../svgs/Explorer/SvgOrderList4';
 import SvgOrderList5 from'../svgs/Explorer/SvgOrderList5';
-// import ModalChoose from'app/components/ModalChoose';
-// import OrderCard from'../components/OrderCard/OrderCard';
+
 
 const dataListOrder = [
   {

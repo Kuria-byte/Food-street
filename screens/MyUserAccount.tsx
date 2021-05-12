@@ -11,21 +11,26 @@ import {
 import {widthScreen} from '../assets/ultis/layout';
 import colors from '../assets/ultis/colors';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import FONTS from'../assets/ultis/fonts';
+
 
 import SvgRightArrow from '../svgs/Profile/SvgRightArrow';
-import PrimaryItem from'../screens/PrimaryItem';
+import PrimaryItem from'./PrimaryItem';
 import SvgOrderHistory from '../svgs/Profile/SvgOrderHistory';
 
 import SvgPaymentMethod from '../svgs/Profile/SvgPaymentMethod';
 import SvgDeliveryAddress from '../svgs/Profile/SvgDeliveryAddress';
-import SecondMenuItem from'../screens/SecondMenuItem';
+import SecondMenuItem from'./SecondMenuItem';
 import {useNavigation} from '@react-navigation/native';
 import ROUTES from '../assets/ultis/routes';
 import SvgProfile from '../svgs/Profile/SvgProfile';
-import SvgSavedArticle from '../svgs/Profile/SvgSavedArticle';
-import SvgSettings from '../svgs/Profile/SvgSettings';
 import SvgInvite from '../svgs/Profile/SvgInvite';
+import SvgIcon2People from '../svgs/SignUp/SvgIcon2People';
+import SvgAdd from '../svgs/SvgAdd';
+import SvgIconRecovery from '../svgs/Login/SvgIconRecovery';
+import SvgLogo from '../svgs/Login/SvgLogo';
+import SvgIconInfo from '../svgs/SignUp/SvgIconInfo';
+import SvgChecked from '../svgs/SvgChecked';
+import SvgSettings from '../svgs/Profile/SvgSettings';
 
 
 const data = {
@@ -56,17 +61,17 @@ const Profile = memo(() => {
     navigation.navigate('MyProfileEdit');
   }, [navigation]);
 
-  const onSavedArticle = useCallback(() => {
-    navigation.navigate(ROUTES.ProfileSaveArticle);
-  }, [navigation]);
+  // const onSavedArticle = useCallback(() => {
+  //   navigation.navigate(ROUTES.ProfileSaveArticle);
+  // }, [navigation]);
 
-  const onSettings = useCallback(() => {
-    navigation.navigate(ROUTES.ProfileSettings);
-  }, [navigation]);
+  // const onSettings = useCallback(() => {
+  //   navigation.navigate(ROUTES.ProfileSettings);
+  // }, [navigation]);
 
-  const onProfileInvite = useCallback(() => {
-    navigation.navigate(ROUTES.ProfileInvite);
-  }, [navigation]);
+  // const onProfileInvite = useCallback(() => {
+  //   navigation.navigate(ROUTES.ProfileInvite);
+  // }, [navigation]);
 
   return (
     <ScrollView
@@ -130,20 +135,16 @@ const Profile = memo(() => {
           svg={<SvgProfile />}
           title={'My Profile'}
         />
-        {/* <SecondMenuItem
-          onPress={onSavedArticle}
-          svg={<SvgSavedArticle />}
-          title={'Saved Article'}
-        /> */}
+     
         <SecondMenuItem
-          onPress={onSettings}
-          svg={<SvgSettings />}
-          title={'Settings'}
+          
+          svg={<SvgChecked/>}
+          title={'About Us'}
         />
         <SecondMenuItem
-          onPress={onProfileInvite}
-          svg={<SvgInvite />}
-          title={'Invite Friend and Family'}
+         
+          svg={<SvgSettings/>}
+          title={'Get Help'}
         />
       </View>
     </ScrollView>
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 0,
   },
   txtGmail: {
-    // fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat',
     fontSize: 14,
     color: colors.while,
     textShadowColor: 'rgba(0, 0, 0, 0.1)',

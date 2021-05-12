@@ -1,16 +1,13 @@
 import React, { memo, useCallback } from 'react';
 import { Text, TextInput, StyleSheet, FlatList, View } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import { SearchBar } from 'react-native-elements';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import RestaurantItem from '../components/RestaurantItem';
 import colors from '../assets/ultis/colors';
-import FONTS from '../assets/ultis/fonts';
 import keyExtractor from '../assets/ultis/KeyExtractor';
 import CategorySlider from '../components/CategorySlider';
-import CustomButton from '../components/CustomButton';
+
 import { widthScreen } from '../assets/ultis/layout';
-import SvgFilterSmall from '../svgs/Explorer/SvgFilterSmall';
+
 
 
 const data = [
@@ -94,8 +91,6 @@ const RestaurantLists = memo(() => {
      </View>
     </View>
 
-
-
   }
     , []);
 
@@ -141,11 +136,6 @@ const RestaurantLists = memo(() => {
       </>
     );
   };
-
-
-
-
-
 
 
   return (

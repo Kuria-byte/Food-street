@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 import { StyleSheet } from 'react-native';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import colors from '../assets/ultis/colors';
-import FONTS from '../assets/ultis/fonts';
 import RestaurantList from './RestaurantList';
 
+// Contains All the restaurants. Basically the restaurant list.
 const Restaurants = memo(() => {
     return (
         <ScrollableTabView
@@ -17,7 +17,6 @@ const Restaurants = memo(() => {
             tabBarTextStyle={styles.tabBarText}>
 
             <RestaurantList />
-    =
         </ScrollableTabView>
     );
 });

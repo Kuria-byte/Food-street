@@ -1,15 +1,11 @@
 import React, {useCallback, useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
  import  Rating  from '../components/Rating';
-
-import SvgBookMark from '../svgs/SvgBookMark';
-import SvgOption from '../svgs/SvgOption';
 import SvgRightArrow from '../svgs/Profile/SvgRightArrow';
-import FONTS from'../assets/ultis/fonts';
 import colors from '../assets/ultis/colors/index';
 import {widthScreen} from '../assets/ultis/layout';
 import {useNavigation} from '@react-navigation/native';
-import ROUTES from '../assets/ultis/routes';
+
 
 
 interface Props {
@@ -38,9 +34,7 @@ const navigation = useNavigation();
   }, [navigation]);
   
 
-  // const onNewsNutritionDetail = useCallback(() => {
-  //   navigation.navigate(ROUTES.NewsNutritionDetail);
-  // }, [navigation]);
+  
 
   return (
     <TouchableOpacity

@@ -11,18 +11,10 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import RestaurantList from '../screens/RestaurantList';
-import UserProfile from '../screens/UserProfileScreen';
+
 import CartScreen from '../screens/CartScreen';
-import Profile from '../screens/TestUSerProfile';
-import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList, MyProfileEditScreenParamList } from '../types';
-import RestaurantItem from '../components/RestaurantItem';
-import Restaurants from '../screens/Restaurants';
-import SvgLogo from '../svgs/Login/SvgLogo';
-import PKLogo from '../assets/Logo';
-import { ImageBackground } from 'react-native';
-import SvgFilter from '../svgs/SignUp/SvgFilter';
-import MyProfileEdit from '../screens/MyProfileEdit';
-import RestaurantMenu from '../screens/RestaurantMenu';
+import Profile from '../screens/MyUserAccount';
+import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamList, CartScreenParamList } from '../types';
 import { LinearGradient } from 'expo-linear-gradient';
 import LogoTitle from '../components/HeaderLogo';
 

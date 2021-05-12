@@ -12,10 +12,8 @@ import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 import MyProfileEdit from '../screens/MyProfileEdit';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import UserProfile from '../screens/UserProfileScreen';
-import { MyProfileEditScreenParamList, RootStackParamList, UserProfileScreenParamList } from '../types';
+import {  RootStackParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
-import ProfileNavigator from './ProfileNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import RestaurantMenu from '../screens/RestaurantMenu';
 

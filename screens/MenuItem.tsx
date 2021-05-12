@@ -1,10 +1,7 @@
 import React, { memo, useState, useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-// import InactiveRate from'app/components/InactiveRate';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import SvgBookMark from '../svgs/Explorer/SvgBookMark'
 import FONTS from'../assets/ultis/fonts';
 import ROUTES from'../assets/ultis/routes';
 import SvgAdd from '../svgs/SvgAdd';
@@ -98,7 +95,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#1D1E2C',
         fontWeight: '600',
-        fontFamily: FONTS.Montserrat.Medium,
+        fontFamily: FONTS.Montserrat.Bold,
         lineHeight: 24
     },
     viewFooterContent: {
