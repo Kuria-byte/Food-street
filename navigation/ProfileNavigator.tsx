@@ -1,17 +1,18 @@
 import React, { memo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import MyEditProfile from '../screens/MyProfileEdit';
+import MyProfileEdit from '../screens/MyProfileEdit';
 import ROUTES from '../assets/ultis/routes';
+import { MyProfileEditScreenParamList } from '../types';
 
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<MyProfileEditScreenParamList>();
 
 const ProfileNavigation = memo(() => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={ROUTES.Profile}
-        component={MyEditProfile}
+        name='MyProfileEdit'
+        component={MyProfileEdit}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -19,6 +20,20 @@ const ProfileNavigation = memo(() => {
 });
 
 export default ProfileNavigation;
+
+// const TabFourStack = createStackNavigator<MyProfileEditScreenParamList>();
+
+// function TabFourNavigator() {
+//   return (
+//     <TabFourStack.Navigator>
+//       <TabFourStack.Screen
+//         name="MyProfileEdit"
+//         component={MyProfileEdit}
+//         options={{ headerTitle: 'My Profile ', headerShown: false }}
+//       />
+//     </TabFourStack.Navigator>
+//   );
+// }
 
 
 /**

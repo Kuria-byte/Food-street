@@ -30,9 +30,6 @@ import LogoTitle from '../components/HeaderLogo';
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 
-
-
-
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
@@ -66,6 +63,8 @@ export default function BottomTabNavigator() {
       />
 
 
+
+
     </BottomTab.Navigator>
 
   );
@@ -84,10 +83,6 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 const TabOneStack = createStackNavigator<RestaurantScreenParamList>();
 
 function TabOneNavigator() {
-
-
-
-  
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
@@ -139,37 +134,12 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={RestaurantMenu}
-        options={{ headerTitle: 'Restaurant ', headerShown: true }}
+        component={CartScreen}
+        options={{ headerTitle: 'Cart ', headerShown: true }}
       />
     </TabThreeStack.Navigator>
   );
 }
 
 
-const TabFourStack = createStackNavigator<MyProfileEditScreenParamList>();
 
-function TabFourNavigator() {
-  return (
-    <TabFourStack.Navigator>
-      <TabFourStack.Screen
-        name="MyProfileEdit"
-        component={MyProfileEdit}
-        options={{ headerTitle: 'My Profile ', headerShown: false }}
-      />
-    </TabFourStack.Navigator>
-  );
-}
-
-// const ProfileScreenStack = createStackNavigator<MyProfileEditScreenParamList>();
-// function MyProfileNavigator() {
-//   return (
-//     <ProfileScreenStack.Navigator>
-//       <ProfileScreenStack.Screen
-//         name="MyProfileEdit"
-//         component={MyProfileEdit}
-//         options={{ headerShown: false }}
-//       />
-//     </ProfileScreenStack.Navigator>
-//   )
-// }

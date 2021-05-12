@@ -1,5 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { Text, TextInput, StyleSheet, FlatList, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import { SearchBar } from 'react-native-elements';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
 import RestaurantItem from '../components/RestaurantItem';
@@ -10,6 +11,7 @@ import CategorySlider from '../components/CategorySlider';
 import CustomButton from '../components/CustomButton';
 import { widthScreen } from '../assets/ultis/layout';
 import SvgFilterSmall from '../svgs/Explorer/SvgFilterSmall';
+
 
 const data = [
   {
@@ -80,6 +82,8 @@ const data1 = [
   },
 ];
 
+
+
 const RestaurantLists = memo(() => {
   const renderItem = useCallback(({ item }) => {
     const { img, title } = item;
@@ -105,6 +109,7 @@ const RestaurantLists = memo(() => {
         tag={tag}
         time={time}
         noSave={true}
+      
       />
     );
   }, []);

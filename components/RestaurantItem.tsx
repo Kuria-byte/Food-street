@@ -22,21 +22,29 @@ interface Props {
   noSave?: boolean;
 }
 
+
+
 const RestaurantItem = (props: Props) => {
   const [focus, setFocus] = useState(props.noSave ? false : true);
   const onFocus = useCallback(() => {
     setFocus(!focus);
   }, [focus]);
 
-  const navigation = useNavigation();
+  
+const navigation = useNavigation();
 
-  const onNewsNutritionDetail = useCallback(() => {
-    navigation.navigate(ROUTES.NewsNutritionDetail);
+  const RestaurantRedirect = useCallback(() => {
+    navigation.navigate('RestaurantMenu');
   }, [navigation]);
+  
+
+  // const onNewsNutritionDetail = useCallback(() => {
+  //   navigation.navigate(ROUTES.NewsNutritionDetail);
+  // }, [navigation]);
 
   return (
     <TouchableOpacity
-      onPress={onNewsNutritionDetail}
+      onPress={RestaurantRedirect}
       style={styles.RestaurantItem}>
       <Image style={styles.img} source={props.img} />
       <Text style={styles.txtTitle}>{props.title} -  <Rating rate={4} /></Text>
@@ -54,7 +62,7 @@ const RestaurantItem = (props: Props) => {
       <View style={styles.bottomView}>
         <Text style={styles.txtTime}>{props.time}</Text>
         <View style={styles.setRow}>
-          <TouchableOpacity onPress={onFocus} style={styles.svgBookMark}>
+          <TouchableOpacity onPress={RestaurantRedirect} style={styles.svgBookMark}>
         
             <Text></Text>
       

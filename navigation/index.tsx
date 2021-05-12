@@ -11,20 +11,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 import MyProfileEdit from '../screens/MyProfileEdit';
-
 import NotFoundScreen from '../screens/NotFoundScreen';
 import UserProfile from '../screens/UserProfileScreen';
-import { MyProfileEditScreenParamList, RootStackParamList } from '../types';
+import { MyProfileEditScreenParamList, RootStackParamList, UserProfileScreenParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
 import ProfileNavigator from './ProfileNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+import RestaurantMenu from '../screens/RestaurantMenu';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
       linking={LinkingConfiguration} fallback={<Text>Loading...</Text>}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        
+    
       <RootNavigator />
     </NavigationContainer>
   );
@@ -39,8 +39,12 @@ function RootNavigator() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
 
       <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen name="MyProfileEdit" component={MyProfileEdit} options={{ headerTitle: 'My Profile', headerShown: true }} />
+      <Stack.Screen name="RestaurantMenu" component={RestaurantMenu} options={{ headerTitle: 'Restaurant', headerShown: true }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+
     </Stack.Navigator>
   );
-}
 
+
+}

@@ -53,7 +53,7 @@ const Profile = memo(() => {
   }, [navigation]);
 
   const onMyProfile = useCallback(() => {
-    navigation.navigate(ROUTES.MyProfileEdit);
+    navigation.navigate('MyProfileEdit');
   }, [navigation]);
 
   const onSavedArticle = useCallback(() => {
@@ -126,7 +126,7 @@ const Profile = memo(() => {
       </View>
       <View style={styles.secondMenu}>
         <SecondMenuItem
-          onPress={navigation.navigate('MyProfileEdit', { screen: 'MyProfileEdit' })}
+          onPress={onMyProfile}
           svg={<SvgProfile />}
           title={'My Profile'}
         />

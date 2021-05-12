@@ -6,12 +6,17 @@
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
+  MyProfileEdit:undefined;
+  RestaurantMenu: undefined
+
 };
 
 export type BottomTabParamList = {
   Restaurants: undefined;
   User: undefined;
   Cart: undefined;
+  MyProfileEdit:undefined
+ 
 };
 
 export type RestaurantScreenParamList = {

@@ -9,27 +9,37 @@ import * as Linking from 'expo-linking';
 export default {
   prefixes: [Linking.makeUrl('/')],
   config: {
+    initialRouteName: 'RestaurantList',
     screens: {
       Root: {
         screens: {
-          RestaurantList: {
+          Restaurants: {
             screens: {
-              TabOneScreen: 'RestaurantList',
+              Restaurants: "Restaurants",
+              RestaurantList: 'RestaurantList',
+              RestaurantMenu: 'RestaurantMenu',
             },
           },
           Cart: {
             screens: {
               Cart: 'Cart',
             },
-          }, MyProfile: {
+          }, User: {
             screens: {
+              UserProfile: 'UserProfile',
               MyProfileEdit: 'MyProfileEdit',
-              MyProfile: 'MyProfile'
             },
-            
-          },
+
+          }
         },
-      },
+      }, 
+      //   MyProfileEdit: {
+      //     screens: {
+      //       MyProfileEdit: 'MyProfileEdit',
+      //       path: 'MyProfileEdit',
+      //     }
+      //   }
+      // ,
       NotFound: '*',
     },
   },
