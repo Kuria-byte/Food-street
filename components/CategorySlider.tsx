@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
         width: 74,
         height: 74,
         borderRadius: 74 / 2,
+     alignContent: 'center',
         overflow: "hidden",
 
     },

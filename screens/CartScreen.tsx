@@ -1,7 +1,7 @@
 import React, {memo, useCallback, useRef, useState} from 'react';
 import {FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
 import FONTS from'../assets/ultis/fonts';
-import CheckOutButton from '../components/CheckOutButton'
+import CheckOutButton from '../components/GradientButton'
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 // import CheckLine from'app/components/CheckLine';
 import {useNavigation} from '@react-navigation/native';

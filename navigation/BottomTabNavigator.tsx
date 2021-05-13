@@ -18,6 +18,7 @@ import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamLi
 import { LinearGradient } from 'expo-linear-gradient';
 import LogoTitle from '../components/HeaderLogo';
 import OrderHistory from '../screens/OrderHistory';
+import FilterScreen from '../screens/FilterSceen';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -29,12 +30,14 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Restaurants"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint,labelStyle:{color: "white"} }}>
       <BottomTab.Screen
         name="Restaurants"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant-outline" color={"#0EAD69"} />
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant-outline" color={"#0EAD69"} /> ,
+        
+          
         }}
       />
 
@@ -74,7 +77,7 @@ export default function BottomTabNavigator() {
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <Ionicons size={30} style={{ marginBottom: -5, paddingTop: 8 }} {...props} />;
 }
 
 
@@ -135,13 +138,14 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={CartScreen}
+        component={FilterScreen}
         options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }} />, }}
       />
     </TabThreeStack.Navigator>
+    
   );
 }
 
