@@ -1,9 +1,13 @@
 import * as React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import Svg, {Path, Defs, LinearGradient, Stop} from 'react-native-svg';
 
 function SvgComponent() {
   return (
-    <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
+    <View style ={{ paddingLeft: 10, marginTop: 8   }}>
+
+  
+    <Svg width={25} height={25} viewBox="0 0 24 24" fill="none" >
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -18,11 +22,12 @@ function SvgComponent() {
           x2={1.00928}
           y2={1}
           gradientUnits="userSpaceOnUse">
-          <Stop stopColor="#82D84E" />
-          <Stop offset={1} stopColor="#0EAD69" />
+          <Stop stopColor="green" />
+          <Stop offset={1} stopColor="#11ba49" />
         </LinearGradient>
       </Defs>
     </Svg>
+    </View>
   );
 }
 

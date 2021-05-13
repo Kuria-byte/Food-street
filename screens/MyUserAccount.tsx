@@ -61,17 +61,7 @@ const Profile = memo(() => {
     navigation.navigate('MyProfileEdit');
   }, [navigation]);
 
-  // const onSavedArticle = useCallback(() => {
-  //   navigation.navigate(ROUTES.ProfileSaveArticle);
-  // }, [navigation]);
 
-  // const onSettings = useCallback(() => {
-  //   navigation.navigate(ROUTES.ProfileSettings);
-  // }, [navigation]);
-
-  // const onProfileInvite = useCallback(() => {
-  //   navigation.navigate(ROUTES.ProfileInvite);
-  // }, [navigation]);
 
   return (
     <ScrollView
@@ -81,7 +71,7 @@ const Profile = memo(() => {
       contentContainerStyle={styles.contentContainerStyle}>
       <ImageBackground
         style={styles.imgBackGround}
-        source={require('../assets/Profile/bg.png')}>
+        source={require('../assets/Profile/profileBackground.jpg')}>
         <View style={styles.avatarView}>
           <Image source={data.avatar} />
           <View style={styles.information}>

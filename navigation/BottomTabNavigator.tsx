@@ -18,7 +18,7 @@ import { BottomTabParamList, RestaurantScreenParamList, UserProfileScreenParamLi
 import { LinearGradient } from 'expo-linear-gradient';
 import LogoTitle from '../components/HeaderLogo';
 import OrderHistory from '../screens/OrderHistory';
-import FilterScreen from '../screens/FilterSceen';
+import SvgFilter from '../svgs/SignUp/SvgFilter';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -35,7 +35,7 @@ export default function BottomTabNavigator() {
         name="Restaurants"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant-outline" color={"#0EAD69"} /> ,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-restaurant-outline" color={"#087829"} /> ,
         
           
         }}
@@ -46,7 +46,7 @@ export default function BottomTabNavigator() {
         name="Cart"
         component={TabThreeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart-outline" color={"#0EAD69"} />, tabBarBadge: 3
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-cart-outline" color={"#087829"} />, tabBarBadge: 3
         }}
       />
 
@@ -54,7 +54,7 @@ export default function BottomTabNavigator() {
         name="Orders"
         component={TabFourNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-time-outline" color={"#0EAD69"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-time-outline" color={"#087829"} />,
         }}
       />
 
@@ -62,7 +62,7 @@ export default function BottomTabNavigator() {
         name="User"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person-outline" color={"#0EAD69"} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person-outline" color={"#087829"} />,
         }}
       />
 
@@ -105,7 +105,6 @@ function TabOneNavigator() {
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }} />,
 
-
         }}
 
 
@@ -138,7 +137,7 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={FilterScreen}
+        component={CartScreen}
         options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}

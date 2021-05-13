@@ -10,11 +10,9 @@ import { widthScreen } from '../assets/ultis/layout';
 
 
 
+
 const data = [
-  {
-    img: require('../assets/Community/Traditional.jpg'),
-    title: 'Traditional',
-  },
+
   {
     img: require('../assets/Community/pizza.jpg'),
     title: 'Pizza',
@@ -28,16 +26,21 @@ const data = [
     title: 'Sides',
   },
   {
-    img: require('../assets/Community/cakes.jpg'),
-    title: 'Desserts',
-  },
-  {
     img: require('../assets/Community/coffee1.jpg'),
     title: 'Bevarages',
   },
   {
     img: require('../assets/Community/starters.jpg'),
     title: 'Starters',
+  },
+  {
+    img: require('../assets/Community/cakes.jpg'),
+    title: 'Desserts',
+  },
+
+  {
+    img: require('../assets/Community/Traditional.jpg'),
+    title: 'Traditional',
   },
 ];
 
@@ -86,9 +89,9 @@ const RestaurantLists = memo(() => {
     const { img, title } = item;
     return <View>
       <CategorySlider img={img} title={title} />
-     <View style={styles.category}>
-       <Text style={styles.categoryText} >{title}</Text>
-     </View>
+      <View style={styles.category}>
+        <Text style={styles.categoryText} >{title}</Text>
+      </View>
     </View>
 
   }
@@ -104,7 +107,7 @@ const RestaurantLists = memo(() => {
         tag={tag}
         time={time}
         noSave={true}
-      
+
       />
     );
   }, []);
@@ -124,10 +127,12 @@ const RestaurantLists = memo(() => {
         />
         <View style={styles.searchBar}>
 
+
           <TextInput
             style={styles.input}
-            inlineImageLeft='search_icon'
+            inlineImageLeft='SvgSearch'
             placeholder={"Search restaurants ..."}
+
           />
 
         </View>
@@ -159,15 +164,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.backgroundApp,
   },
-  category:{
-    marginTop:6,
-    flex:1,
+  category: {
+    marginTop: 6,
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
- 
-    
+
+  }, SearchIcon: {
+
+    flexDirection: 'row',
+    paddingLeft: 25
   },
-  categoryText:{
+  categoryText: {
     fontFamily: "Montserrat",
     fontWeight: '600',
     fontSize: 12,
@@ -176,26 +184,28 @@ const styles = StyleSheet.create({
   }
   ,
   input: {
-    height: 40,
+    height: 30,
     fontFamily: "Montserrat",
     fontWeight: '400',
     paddingLeft: 15,
     fontSize: 14,
     color: colors.title,
-    marginLeft: 15,
+    marginLeft: 16,
     marginBottom: 15,
-    borderWidth: 2,
+    borderWidth: 0,
     marginTop: 10,
-    borderRadius: 6,
-    minHeight: 45,
-    shadowColor: '#000',
+    borderRadius: 5,
+    minHeight: 55,
+    shadowColor: '#858a83',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 1,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 0,
+    elevation: 4,
+    width: widthScreen - 35
+
   },
   searchBar: {
     marginTop: 15,
@@ -203,7 +213,9 @@ const styles = StyleSheet.create({
     marginRight: 15,
     paddingRight: 15,
     width: widthScreen,
-
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
 
   },
 

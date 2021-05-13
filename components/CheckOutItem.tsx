@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   txtName: {
     color: '#1D1E2C',
-    fontSize: 14,
+    fontSize: 13,
     lineHeight: 17,
     fontFamily: "Montserrat",
     flex: 1,

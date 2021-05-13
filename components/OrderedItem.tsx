@@ -26,7 +26,8 @@ const OrderedItem = memo((props: PropsItemList) => {
             <View style={styles.viewContent}>
                 <View style={styles.viewText}>
                     <View style={styles.ContainerTop}>
-                        <Text style={styles.textName}> Arabina Restaurant</Text>
+                        <Text style={styles.textName}> Arabina Restaurant </Text>
+            
                         <Text style={styles.textHeader}> Rs. 150</Text>
                     </View>
                     <View style={styles.txtView}>
@@ -37,16 +38,20 @@ const OrderedItem = memo((props: PropsItemList) => {
                         >
                             {props.name}
                         </Text>
+
                     </View>
             
-
+                   
                 </View>
 
                 <View style={styles.viewFooterContent}>
+                    <View style={{flexDirection: "column" }}>
+                    <Text style={styles.Price}>Delivered</Text>
                     <Text style={styles.OrderDate}>10 May, 17: 25</Text>
                    
-                  
-                    <Text style={styles.Price}>Delivered</Text>
+                 
+                    </View>
+                    
                
                     <TouchableOpacity onPress={isShowActive}>
                         <View style={styles.btnContainer}>
@@ -98,11 +103,13 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.58,
         shadowRadius: 16,
+        // paddingTop: 28
 
     },
     ContainerTop: {
         flexDirection: "row",
         justifyContent: "space-between",
+        
     },
     txtView: {
         lineHeight: 24,
@@ -118,7 +125,7 @@ const styles = StyleSheet.create({
         color: "grey",
         fontWeight: "500",
         fontFamily: FONTS.Montserrat.Medium,
-        marginTop: 27,
+        marginTop: 5,
         paddingLeft: 4,
     },
     textHeader: {
@@ -127,7 +134,7 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         fontFamily: FONTS.Montserrat.Bold,
         lineHeight: 24,
-        marginLeft: 120,
+        // marginLeft: 120,
     },
     viewContent: {
         paddingHorizontal: 16,
@@ -144,18 +151,16 @@ const styles = StyleSheet.create({
         lineHeight: 14,
         paddingTop: 4,
         paddingLeft: 4,
-        paddingBottom: 4,
+        paddingBottom: 6,
     },
     Price: {
         fontSize: 11,
         color: "green",
         fontWeight: "500",
         fontFamily: FONTS.Montserrat.Medium,
-        lineHeight: 14,
-        paddingTop: 10,
-        paddingBottom: 12,
-        paddingRight: 20,
-        marginLeft: -263
+        marginTop: 12,
+        marginLeft: 4
+     
     },
     textName: {
         fontSize: 12,
@@ -168,6 +173,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         flex: 1,
+        textAlign: "left"
     },
     heightSvg: {
         height: "100%",

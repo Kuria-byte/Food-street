@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         shadowRadius: 1.41,
         elevation: 2,
         borderWidth: 3,
-        borderColor: "green"
+        borderColor: "#2CAF1E"
 
     },
    

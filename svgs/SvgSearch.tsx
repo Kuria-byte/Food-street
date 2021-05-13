@@ -1,8 +1,12 @@
 import * as React from 'react';
 import Svg, { Path, Defs, LinearGradient, Stop } from 'react-native-svg';
-
+import { StyleSheet, Text, View } from 'react-native';
 function SvgComponent(props) {
   return (
+
+    <View style={{paddingLeft: 50}}>
+
+  
     <Svg width={20} height={20} viewBox="0 0 20 20" fill="none" >
       <Path
         fillRule="evenodd"
@@ -23,6 +27,7 @@ function SvgComponent(props) {
         </LinearGradient>
       </Defs>
     </Svg>
+    </View>
   );
 }
 
