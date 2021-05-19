@@ -1,42 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-
+import { parse } from 'fast-xml-parser';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 export default function MakeApiCall() {
     let [quote, setQuote] = React.useState('')
 
-    const parseString = require('react-native-xml2js').parseString;
 
-
-    const fetchApiCall = () => {
-        fetch("https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/GetCityByCityID?id=1", {
+    let getXMLResponse = () => {
+        fetch('https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/GetCityByCityID?id=1', {
             "method": "GET",
             "headers": {
-                "host": "www.pkfoodstreet.com", 
+                "host": "www.pkfoodstreet.com",
                 "Content-Type": "application/xml; charset=utf-8"
             },
-            // mode: 'cors',
         })
-            .then(async response => await response)
-            .then(async response => {
-                setQuote(await response.text());
-                console.log(await response)
-
+            .then(async (response) => response.text())
+            .then((textResponse) => {
+                let obj = parse(textResponse);
+                setQuote( obj.mCity.CityName)
+                console.log(obj)
             })
-            .then((response) => {
-                parseString(response, function () {
-                    console.log(response)
-
-                });
-            }).catch((err) => {
-                console.log('Fetch Error', err)
-            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Native API Calls</Text>
             <Text>Example with fetch and Axios</Text>
-            <TouchableHighlight onPress={fetchApiCall}>
+            <TouchableHighlight onPress={getXMLResponse}>
                 <View style={styles.button}>
                     <Text style={styles.buttonText}>Use Fetch API</Text>
                 </View>
