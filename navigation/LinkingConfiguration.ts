@@ -6,10 +6,11 @@
 
 import * as Linking from 'expo-linking';
 
+
 export default {
   prefixes: [Linking.makeUrl('/')],
   config: {
-    initialRouteName: 'RestaurantList',
+    initialRouteName: 'ResttauranrList',
     screens: {
       Root: {
         screens: {
@@ -35,8 +36,12 @@ export default {
             screens:{
               Orders: 'Orders'
             }
+          },
+          Onboarding:{
+            screens:{
+              Onboarding: 'OnBoarding'
+            }
           }
-          
         },
       }, 
       //   MyProfileEdit: {

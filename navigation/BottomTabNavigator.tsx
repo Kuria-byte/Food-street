@@ -20,6 +20,8 @@ import LogoTitle from '../components/HeaderLogo';
 import OrderHistory from '../screens/OrderHistory';
 import SvgFilter from '../svgs/SignUp/SvgFilter';
 import MakeApiCall from '../screens/FetchCity';
+import OnBoardingScreen from '../screens/OnBoarding';
+import VerifyUser from '../screens/FetchUser';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -138,13 +140,14 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={MakeApiCall}
+        component={VerifyUser}
         options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }} />, }}
       />
     </TabThreeStack.Navigator>
+    
     
   );
 }

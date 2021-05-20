@@ -40,3 +40,7 @@ export type MyProfileEditScreenParamList = {
 export type CartScreenParamList = {
   Cart: undefined;
 };
+
+export type OnBoardingParamList = {
+  OnBoarding: undefined;
+};

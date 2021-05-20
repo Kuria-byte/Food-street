@@ -2,12 +2,21 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { parse } from 'fast-xml-parser';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-export default function MakeApiCall() {
-    let [cityName, setcityName] = React.useState('')
+
+
+export default function VerifyUser() {
+    let [userName, setuserName] = React.useState('')
+    let [password, setPassword] = React.useState('')
+    let [phone, setPhone] = React.useState('')
+    let [city, setCity] = React.useState('')
+    let [district, setDistrict] = React.useState('')
+    
+    let _email = 'kashifmanzoor_net@hotmail.com'
+    let _password = 'Abc123'
 
 
     let getXMLResponse = () => {
-        fetch('https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/GetCityByCityID?id=1', {
+        fetch(`https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/VerifyUserLogin?email=${_email}&password=${_password}`, {
             "method": "GET",
             "headers": {
                 "host": "www.pkfoodstreet.com",
@@ -17,7 +26,11 @@ export default function MakeApiCall() {
             .then(async (response) => response.text())
             .then((textResponse) => {
                 let obj = parse(textResponse);
-                setcityName( obj.mCity.CityName)
+                setuserName(obj.mUser.UserName)
+                setPassword(obj.mUser.UserPassword)
+                setPhone(obj.mUser.UserPhone)
+                setDistrict(obj.mUser.DistrictID)
+                setCity(obj.mUser.CityID)
                 console.log(obj)
             })
             .catch((error) => {
@@ -27,15 +40,19 @@ export default function MakeApiCall() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Native API Calls</Text>
-            <Text>Example with fetch and Axios</Text>
+            <Text style={styles.title}>PK API Calls</Text>
+            <Text>Using with fetch and Axios</Text>
             <TouchableHighlight onPress={getXMLResponse}>
                 <View style={styles.button}>
-                    <Text style={styles.buttonText}>Use Fetch API</Text>
+                    <Text style={styles.buttonText}> Fetch API</Text>
                 </View>
             </TouchableHighlight>
             <View>
-                <Text>{cityName}</Text>
+                <Text>Name: {userName}</Text>
+                <Text>Phone: {phone}</Text>
+                <Text>Pass: {password}</Text>
+                <Text>City ID: {city}</Text>
+                <Text>District ID: {district}</Text>
             </View>
             <StatusBar style="auto" />
         </View>
