@@ -2,6 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { parse } from 'fast-xml-parser';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { setCurrentUser } from '../Redux/user/user-actions';
+import { connect, useDispatch } from 'react-redux';
+import { store } from '../Redux/Store';
 
 
 export default function VerifyUser() {
@@ -31,7 +34,9 @@ export default function VerifyUser() {
                 setPhone(obj.mUser.UserPhone)
                 setDistrict(obj.mUser.DistrictID)
                 setCity(obj.mUser.CityID)
+                store.dispatch(setCurrentUser(obj.mUser))
                 console.log(obj)
+                console.log(store.getState())
             })
             .catch((error) => {
                 console.log(error);
@@ -79,3 +84,8 @@ const styles = StyleSheet.create({
         color: '#fff'
     }
 });
+
+// const mapStateToProps = createStructuredSelector({
+//     currentUser : selectCurrentUser,
+//     shopCollections : selectCollectioinForPreview
+//   });

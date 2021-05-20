@@ -6,6 +6,7 @@ import FONTS from'../assets/ultis/fonts';
 
 export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
+  let [OnboardingStatus, setOnboardingStatus ] = React.useState(true);
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
@@ -32,5 +33,5 @@ export default function useCachedResources() {
     loadResourcesAndDataAsync();
   }, []);
 
-  return isLoadingComplete;
+  return {isLoadingComplete, OnboardingStatus};
 }

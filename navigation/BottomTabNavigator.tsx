@@ -19,9 +19,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import LogoTitle from '../components/HeaderLogo';
 import OrderHistory from '../screens/OrderHistory';
 import SvgFilter from '../svgs/SignUp/SvgFilter';
-import MakeApiCall from '../screens/FetchCity';
+import MakeApiCall from '../Utils/FetchCity';
 import OnBoardingScreen from '../screens/OnBoarding';
-import VerifyUser from '../screens/FetchUser';
+import VerifyUser from '../Utils/FetchUser';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();

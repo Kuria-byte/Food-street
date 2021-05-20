@@ -6,8 +6,9 @@
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
+  OnBoarding: undefined;
   MyProfileEdit:undefined;
-  RestaurantMenu: undefined
+  RestaurantMenu: undefined;
 
 };
 
