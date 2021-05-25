@@ -22,6 +22,7 @@ import SvgFilter from '../svgs/SignUp/SvgFilter';
 import MakeApiCall from '../Utils/FetchCity';
 import OnBoardingScreen from '../screens/OnBoarding';
 import VerifyUser from '../Utils/FetchUser';
+import PostUser from '../Utils/PostUser';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -140,7 +141,7 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={VerifyUser}
+        component={PostUser}
         options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}
