@@ -23,6 +23,8 @@ import MakeApiCall from '../Utils/FetchCity';
 import OnBoardingScreen from '../screens/OnBoarding';
 import VerifyUser from '../Utils/FetchUser';
 import PostUser from '../Utils/PostUser';
+import RegisterAccount from '../screens/SignUp';
+import SignInScreen from '../screens/RegisterScreen';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -141,8 +143,8 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={PostUser}
-        options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
+        component={SignInScreen}
+        options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: false,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }} />, }}

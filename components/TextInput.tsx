@@ -1,5 +1,5 @@
 import React, {memo, useCallback, useRef, useState} from 'react';
-import FONTS from'app/ultis/fonts';
+import FONTS from'../assets/ultis/fonts';
 import {
   Platform,
   StyleSheet,
