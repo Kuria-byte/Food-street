@@ -41,16 +41,15 @@ export default {
             screens:{
               Onboarding: 'OnBoarding'
             }
-          }
+          }, SignUp:{
+            screens:{
+              SignUp: 'SignUp',
+             
+            }
+          },
         },
       }, 
-      //   MyProfileEdit: {
-      //     screens: {
-      //       MyProfileEdit: 'MyProfileEdit',
-      //       path: 'MyProfileEdit',
-      //     }
-      //   }
-      // ,
+  
       NotFound: '*',
     },
   },

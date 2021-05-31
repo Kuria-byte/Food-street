@@ -17,6 +17,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
 import RestaurantMenu from '../screens/RestaurantMenu';
 import OnBoardingScreen from '../screens/OnBoarding';
+import SignUpScreen from '../screens/SignUp';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -36,7 +37,8 @@ const Stack = createStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="OnBoarding" component={OnBoardingScreen} options={{ title: 'Welcome!' }} />
+      {/* <Stack.Screen name="OnBoarding" component={OnBoardingScreen} options={{ title: 'Welcome!' }} /> */}
+      <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerTitle: 'Sign up', headerShown: false }} />
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="MyProfileEdit" component={MyProfileEdit} options={{ headerTitle: 'My Profile', headerShown: true }} />
       <Stack.Screen name="RestaurantMenu" component={RestaurantMenu} options={{ headerTitle: 'Restaurant', headerShown: true }} />

@@ -14,6 +14,7 @@
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
     "@react-native-community/masked-view": "0.1.10",
+    "@react-native-picker/picker": "^1.16.1",
     "@react-navigation/bottom-tabs": "5.11.2",
     "@react-navigation/native": "~5.8.10",
     "@react-navigation/stack": "~5.12.8",
@@ -58,6 +59,7 @@
     "@types/react-native-onboarding-swiper": "^1.1.1",
     "@types/react-native-scrollable-tab-view": "^0.10.1",
     "@types/redux-logger": "^3.0.8",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "jest-expo": "~41.0.0",
     "typescript": "^4.0.7"
   },

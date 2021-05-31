@@ -9,6 +9,8 @@ export type RootStackParamList = {
   OnBoarding: undefined;
   MyProfileEdit:undefined;
   RestaurantMenu: undefined;
+  SignUp: undefined;
+  SignIn: undefined;
 
 };
 
@@ -44,4 +46,8 @@ export type CartScreenParamList = {
 
 export type OnBoardingParamList = {
   OnBoarding: undefined;
+};
+
+export type SignUpParamList = {
+  SignUp: undefined;
 };

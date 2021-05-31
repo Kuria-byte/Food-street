@@ -61,6 +61,10 @@ const Profile = memo(() => {
     navigation.navigate('MyProfileEdit');
   }, [navigation]);
 
+  const onSignUp = useCallback(() => {
+    navigation.navigate('SignUp');
+  }, [navigation]);
+
 
 
   return (
@@ -127,7 +131,7 @@ const Profile = memo(() => {
         />
      
         <SecondMenuItem
-          
+          onPress={onSignUp}
           svg={<SvgChecked/>}
           title={'About Us'}
         />
