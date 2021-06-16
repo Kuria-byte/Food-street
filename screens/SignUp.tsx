@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Dimensions,
   TextInput,
-  Picker,
   Platform,
   StyleSheet,
   ScrollView,
@@ -20,13 +19,16 @@ import navigation from '../navigation';
 import { useNavigation } from '@react-navigation/native';
 import PostUser3 from '../Utils/PostUser';
 import { parse } from 'fast-xml-parser';
+import DropDownPicker from 'react-native-dropdown-picker';
+import { setCurrentUser } from '../Redux/user/user-actions';
+import { connect } from 'react-redux';
+import { store } from '../Redux/Store';
 
 
-const SignUpScreen = () => {
+const SignUpScreen = (currentUser: any) => {
 
 
   let [data, setData] = React.useState({
-
     check_textInputChange: false,
     secureTextEntry: true,
     confirm_secureTextEntry: true,
@@ -37,17 +39,10 @@ const SignUpScreen = () => {
   const [lName, setLName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
-  const [City, SetCity] = React.useState("1");
-  const [district, setDistrict] = React.useState("1");
-  const [subdivision, setSubDivision] = React.useState("1");
   const [address, setAddress] = React.useState("F29-40 Karachi Test Address");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPaassword] = React.useState("");
 
-  // const navigation = useNavigation();
-  // const onLogin = useCallback(() => {
-  //   navigation.navigate("RestaurantMenu");
-  // }, [navigation]);
 
 
 
@@ -80,17 +75,6 @@ const SignUpScreen = () => {
     setPhone(val)
   };
 
-  const handleCity = (val: string) => {
-    SetCity(val)
-  };
-
-  const handleDistrict = (val: string) => {
-    setDistrict(val)
-  };
-
-  const handleSubDivison = (val: string) => {
-    setSubDivision(val)
-  };
 
   const handleAddress = (val: string) => {
     setAddress(val)
@@ -118,32 +102,60 @@ const SignUpScreen = () => {
     });
   };
 
- 
-// XML POST DATA
-let params='fname='+ fName +'&lname='+ lName+'&email='+ email+'&phone='+ phone+'&password='+ password+'&cityid='+ City +'&districtid='+ district+'&subdivisionid='+ subdivision+'&address='+ address
-let url = `https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/AddNewUser`
+  const [open, setOpen] = useState(false);
+  const [valueCity, setValue] = useState(null);
+  const [city, setCity] = useState([
+    { label: 'Karachi', value: '1' },
+    { label: 'Lahore', value: '2' }
+  ]);
 
-// XMLHTTP - IMPLEMENTATION
-var xhr = new XMLHttpRequest();
-let xmlObject
-let PostData = () => {
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-  xhr.onreadystatechange = function () { // Call a function when the state changes.
+
+  const [OpenDis, setOpenDis] = useState(false);
+  const [ValueDis, SetValueDis] = useState(null);
+  const [district, setdDistrict] = useState([
+    { label: 'Korangi', value: '5' },
+  ]);
+
+  const [openSubDiv, setopenSubDiv] = useState(false);
+  const [subDivValue, setsubDivValue] = useState(null);
+  const [subdivision, setSubDivison] = useState([
+    { label: 'Model Colony', value: '28' },
+  ]);
+
+  // XML POST DATA
+  let params = 'fname=' + fName + '&lname=' + lName + '&email=' + email + '&phone=' + phone + '&password=' + password + '&cityid=' + valueCity + '&districtid=' + ValueDis + '&subdivisionid=' + subDivValue + '&address=' + address
+  let url = `https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/AddNewUser`
+  console.log(city)
+
+  // XMLHTTP - IMPLEMENTATION
+  var xhr = new XMLHttpRequest();
+  let xmlObject;
+  let PostData = () => {
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+    xhr.onreadystatechange = function () { // Call a function when the state changes.
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          // Request finished. Do processing here.
-          xmlObject = parse(xhr.responseText)
-          console.log(xmlObject)
-          // setresponse(xmlObject.int)
-      }else {
-          console.log("error posting data")
+        // Request finished. Do processing here.
+        xmlObject = parse(xhr.responseText)
+        console.log(xmlObject.int)
+        let response = xmlObject.int;
+        if (response === 1) {
+        setCurrentUser({fName,lName,email,phone,valueCity,ValueDis,subDivValue})
+        console.log(currentUser)
+
+        } else {
+          console.log("error adding user")
+        }
+        // setresponse(xmlObject.int)
+      } else {
+        console.log("error posting data")
       }
+    }
+    xhr.send(params);
+
   }
-  xhr.send(params);
-}
 
-
-
+  // setCurrentUser(params)
 
   return (
     <View style={styles.container}>
@@ -264,16 +276,21 @@ let PostData = () => {
           <View style={styles.action}>
             <FontAwesome name="map-marker" color="#12803D" size={24} />
 
-            <Picker
+            <DropDownPicker
               style={styles.pickerInput}
-              mode={'dropdown'}
-              selectedValue={City}
-              onValueChange={(itemValue, itemIndex) =>
-                SetCity(itemValue)
-              }>
-              <Picker.Item label="Karachi" value="1" />
-              <Picker.Item label="Lahore" value="0" />
-            </Picker>
+              textStyle={{
+                fontSize: 15
+              }}
+              open={open}
+              value={valueCity}
+              items={city}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setCity}
+              onChangeValue={(value) => {
+                console.log(value);
+              }}
+            />
 
             {data.check_textInputChange ? (
               <Animatable.View animation="bounceIn">
@@ -281,8 +298,75 @@ let PostData = () => {
               </Animatable.View>
             ) : null}
 
-
           </View>
+          {/* // DISTRICT */}
+          <Text
+            style={[
+              styles.text_footer,
+              {
+                marginTop: 35,
+              },
+            ]}>
+            District
+          </Text>
+          <View style={styles.action}>
+            <FontAwesome name="map-marker" color="#12803D" size={24} />
+
+            <DropDownPicker
+              style={styles.pickerInput}
+              textStyle={{
+                fontSize: 15
+              }}
+              open={OpenDis}
+              value={ValueDis}
+              items={district}
+              setOpen={setOpenDis}
+              setValue={SetValueDis}
+              setItems={setdDistrict}
+
+            />
+
+            {data.check_textInputChange ? (
+              <Animatable.View animation="bounceIn">
+                <Feather name="check-circle" color="#12803D" size={20} />
+              </Animatable.View>
+            ) : null}
+          </View>
+
+          {/* // SUBDIVISION */}
+          <Text
+            style={[
+              styles.text_footer,
+              {
+                marginTop: 35,
+              },
+            ]}>
+            SubDivison
+          </Text>
+          <View style={styles.action}>
+            <FontAwesome name="map-marker" color="#12803D" size={24} />
+
+            <DropDownPicker
+              style={styles.pickerInput}
+              textStyle={{
+                fontSize: 15
+              }}
+              open={openSubDiv}
+              value={subDivValue}
+              items={subdivision}
+              setOpen={setopenSubDiv}
+              setValue={setsubDivValue}
+              setItems={setSubDivison}
+            />
+
+            {data.check_textInputChange ? (
+              <Animatable.View animation="bounceIn">
+                <Feather name="check-circle" color="#12803D" size={20} />
+              </Animatable.View>
+            ) : null}
+          </View>
+
+
           {/* // PASSWORD */}
           <Text
             style={[
@@ -356,7 +440,7 @@ let PostData = () => {
           <View style={styles.button}>
             <TouchableOpacity
               onPress={PostData}
-              style={[  
+              style={[
                 styles.signIn,
                 {
                   backgroundColor: '#31AA47',
@@ -413,7 +497,18 @@ let PostData = () => {
   );
 };
 
-export default SignUpScreen;
+
+
+const mapStateToProps = (state: { user: { currentUser: any; }; }) => ({
+  currentUser : state.user.currentUser
+  });
+
+const mapDispatchToProps = (dispatch: (arg0: { type: string; payload: any; }) => any) => ({
+  setCurrentUser: (user: any) => dispatch(setCurrentUser(user)),
+  
+});
+
+export default connect(mapStateToProps, mapDispatchToProps) (SignUpScreen);
 
 const styles = StyleSheet.create({
   container: {
