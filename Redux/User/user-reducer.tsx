@@ -1,5 +1,7 @@
 const INITIAL_STATE = {
-    currentUser: null
+    CurrentUser: {
+        fName: "Ian Static"
+    }
 }
 
 const userReducer = (state = INITIAL_STATE, action: { type: any; payload: any; }) => {
@@ -7,13 +9,13 @@ const userReducer = (state = INITIAL_STATE, action: { type: any; payload: any; }
         case 'SET_CURRENT_USER':
             return {
                 ...state,
-                currentUser: action.payload
+                CurrentUser: action.payload
             };
 
         case 'LOG_OUT_USER':
             return {
                 ...state,
-                currentUser: null
+                CurrentUser: null
             }
 
         default:

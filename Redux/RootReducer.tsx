@@ -12,7 +12,7 @@ import userReducer from './User/user-reducer';
 //     whitelist : ['cart']
 // }
 const rootReducer = combineReducers ({
-    user : userReducer,
+    CurrentUser : userReducer,
 });
 
 export default rootReducer;

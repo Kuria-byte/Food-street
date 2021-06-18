@@ -4,7 +4,6 @@ import {
   Text,
   Button,
   TouchableOpacity,
-  Dimensions,
   TextInput,
   Platform,
   StyleSheet,
@@ -12,20 +11,18 @@ import {
   StatusBar,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import * as LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import navigation from '../navigation';
 import { useNavigation } from '@react-navigation/native';
-import PostUser3 from '../Utils/PostUser';
 import { parse } from 'fast-xml-parser';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { connect, useDispatch } from 'react-redux';
 import { setCurrentUser } from '../Redux/user/user-actions';
-import { connect } from 'react-redux';
-import { store } from '../Redux/Store';
 
 
-const SignUpScreen = (currentUser: any) => {
+
+const SignUpScreen = (CurrentUser: any) => {
 
 
   let [data, setData] = React.useState({
@@ -33,6 +30,9 @@ const SignUpScreen = (currentUser: any) => {
     secureTextEntry: true,
     confirm_secureTextEntry: true,
   });
+
+
+  const dispatch = useDispatch()
 
 
   let [fName, setFname] = React.useState("");
@@ -109,7 +109,6 @@ const SignUpScreen = (currentUser: any) => {
     { label: 'Lahore', value: '2' }
   ]);
 
-
   const [OpenDis, setOpenDis] = useState(false);
   const [ValueDis, SetValueDis] = useState(null);
   const [district, setdDistrict] = useState([
@@ -125,11 +124,11 @@ const SignUpScreen = (currentUser: any) => {
   // XML POST DATA
   let params = 'fname=' + fName + '&lname=' + lName + '&email=' + email + '&phone=' + phone + '&password=' + password + '&cityid=' + valueCity + '&districtid=' + ValueDis + '&subdivisionid=' + subDivValue + '&address=' + address
   let url = `https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/AddNewUser`
-  console.log(city)
+
 
   // XMLHTTP - IMPLEMENTATION
   var xhr = new XMLHttpRequest();
-  let xmlObject;
+  let xmlObject
   let PostData = () => {
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
@@ -140,22 +139,39 @@ const SignUpScreen = (currentUser: any) => {
         console.log(xmlObject.int)
         let response = xmlObject.int;
         if (response === 1) {
-        setCurrentUser({fName,lName,email,phone,valueCity,ValueDis,subDivValue})
-        console.log(currentUser)
+          // dispatch({ type: "SET_CURRENT_USER", fName, lName, email, phone, valueCity, ValueDis, subDivValue })
+          dispatch(setCurrentUser({fName, lName, email, phone, valueCity, ValueDis, subDivValue}))
+          console.log(CurrentUser)
 
         } else {
           console.log("error adding user")
         }
         // setresponse(xmlObject.int)
       } else {
-        console.log("error posting data")
+        console.log("error")
       }
     }
     xhr.send(params);
-
   }
 
-  // setCurrentUser(params)
+
+
+
+  const handleSubmit = async (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("passwords don't match");
+      return;
+    }
+    try {
+      PostData();
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <View style={styles.container}>
@@ -439,7 +455,7 @@ const SignUpScreen = (currentUser: any) => {
           </View>
           <View style={styles.button}>
             <TouchableOpacity
-              onPress={PostData}
+              onPress={handleSubmit}
               style={[
                 styles.signIn,
                 {
@@ -499,16 +515,12 @@ const SignUpScreen = (currentUser: any) => {
 
 
 
-const mapStateToProps = (state: { user: { currentUser: any; }; }) => ({
-  currentUser : state.user.currentUser
-  });
+// const mapStateToProps = (state: { user: { CurrentUser: any; }; }) => ({
+//   user: state.user.CurrentUser
+// });
 
-const mapDispatchToProps = (dispatch: (arg0: { type: string; payload: any; }) => any) => ({
-  setCurrentUser: (user: any) => dispatch(setCurrentUser(user)),
-  
-});
 
-export default connect(mapStateToProps, mapDispatchToProps) (SignUpScreen);
+export default connect(null, null)(SignUpScreen);
 
 const styles = StyleSheet.create({
   container: {
@@ -600,3 +612,7 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
   },
 });
+
+function err(err: any) {
+  throw new Error('Function not implemented.');
+}
