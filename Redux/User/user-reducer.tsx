@@ -1,24 +1,36 @@
 export interface UserState {
     CurrentUser: {
-        fName: string;
-        lName: string;
-        email: string;
-        phone: string;
-        valueCity: string;
-        ValueDis: string;
-        subDivValue: string;
+        UserID: string;
+        UserName: string;
+        UserEmail: string;
+        UserPhone: string;
+        UserPassword: string;
+        CityID: string;
+        DistrictID: string;
+        SubDistrictID: string;
+        UserPostalCode: string;
+        UserAddress: string
+        UserLatitude: string
+        UserLongitude: string
+        IsActive: boolean
     }
 }
 
 const INITIAL_STATE = {
     CurrentUser: {
-        fName: "Ian ",
-        lName: "Static",
-        email: "default@gmail.com",
-        phone: "0792145540",
-        valueCity: "1",
-        ValueDis: "5",
-        subDivValue: "28",
+        UserID: "510",
+        UserName: "Ian Kuria",
+        UserEmail: "125mwitumi21@gmail.com",
+        UserPhone: "0792145540",
+        UserPassword: "12345",
+        CityID: "1",
+        DistrictID: "5",
+        SubDistrictID: "28",
+        UserPostalCode: "",
+        UserAddress: "F29-40 Karachi",
+        UserLatitude: "",
+        UserLongitude: "",
+        IsActive: true
     }
 }
 

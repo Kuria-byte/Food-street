@@ -46,7 +46,7 @@ const Profile= memo(() => {
   // let {fName, lName, email, phone, valueCity, ValueDis, subDivValue} =user
 
   const user = useSelector((state: RootState) => state.CurrentUser);
-   let {fName, lName, email, phone, valueCity, ValueDis, subDivValue} =user.CurrentUser
+   let {UserID, UserName, UserEmail, UserPhone, CityID, DistrictID, SubDivisionID, UserPostalCode, UserAddress, UserLatitude, UserLongitude, IsActive} =user.CurrentUser
 
   const onOrderHistory = useCallback(() => {
     navigation.navigate('ProfileOrderHistory');
@@ -72,10 +72,10 @@ const Profile= memo(() => {
 
   let data = {
     avatar: require('../assets/Profile/avatar.png'),
-    userName: fName,
-    gmail:  email,
+    userName: UserName,
+    gmail:  UserEmail,
     numberNotification: '3',
-    walaPoint: phone,
+    walaPoint: UserPhone,
     orderHistory: true,
   };
 

@@ -124,6 +124,7 @@ const SignUpScreen: React.FC<UserState> =({CurrentUser}) => {
   // XML POST DATA
   let params = 'fname=' + fName + '&lname=' + lName + '&email=' + email + '&phone=' + phone + '&password=' + password + '&cityid=' + valueCity + '&districtid=' + ValueDis + '&subdivisionid=' + subDivValue + '&address=' + address
   let url = `https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/AddNewUser`
+  let verifyurl = `https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/AddNewUser`
 
 
   // XMLHTTP - IMPLEMENTATION
@@ -139,9 +140,7 @@ const SignUpScreen: React.FC<UserState> =({CurrentUser}) => {
         console.log(xmlObject.int)
         let response = xmlObject.int;
         if (response === 1) {
-
-          dispatch(setCurrentUser({fName, lName, email, phone, valueCity, ValueDis, subDivValue}))
-
+          verifyUser()
         } else {
           console.log("error adding user")
         }
@@ -153,8 +152,27 @@ const SignUpScreen: React.FC<UserState> =({CurrentUser}) => {
     xhr.send(params);
   }
 
+  // VERIFY USER LOGIN
+  let verifyUser = () => {
+    fetch(`https://cors-anywhere.herokuapp.com/https://www.pkfoodstreet.com/webapi.asmx/VerifyUserLogin?email=${email}&password=${password}`, {
+        "method": "GET",
+        "headers": {
+            "host": "www.pkfoodstreet.com",
+            "Content-Type": "application/xml; charset=utf-8"
+        },
+    })
+        .then(async (response) => response.text())
+        .then((textResponse) => {
+            let obj = parse(textResponse);
+            dispatch(setCurrentUser(obj.mUser))
+            console.log(obj)
+            alert("Successful Signup")
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
   
-  console.log(CurrentUser.fName)
 
 
   const handleSubmit = async (event: { preventDefault: () => void; }) => {

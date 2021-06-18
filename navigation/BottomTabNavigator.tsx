@@ -25,6 +25,7 @@ import VerifyUser from '../Utils/FetchUser';
 import PostUser from '../Utils/PostUser';
 import RegisterAccount from '../screens/SignUp';
 import SignInScreen from '../screens/SignUp';
+import FetchRestaurants from '../Utils/FetchRestaurants';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -143,7 +144,7 @@ function TabThreeNavigator() {
     <TabThreeStack.Navigator>
       <TabThreeStack.Screen
         name="Cart"
-        component={CartScreen}
+        component={FetchRestaurants}
         options={{ headerTitle: 'Cart ', headerTitleStyle: {color: 'white'}, headerShown: true,  headerBackground: (props) => <LinearGradient colors={['#108623', '#00ff87']}
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}
