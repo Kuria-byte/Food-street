@@ -1,10 +1,28 @@
-const INITIAL_STATE = {
+export interface UserState {
     CurrentUser: {
-        fName: "Ian Static"
+        fName: string;
+        lName: string;
+        email: string;
+        phone: string;
+        valueCity: string;
+        ValueDis: string;
+        subDivValue: string;
     }
 }
 
-const userReducer = (state = INITIAL_STATE, action: { type: any; payload: any; }) => {
+const INITIAL_STATE = {
+    CurrentUser: {
+        fName: "Ian ",
+        lName: "Static",
+        email: "default@gmail.com",
+        phone: "0792145540",
+        valueCity: "1",
+        ValueDis: "5",
+        subDivValue: "28",
+    }
+}
+
+const userReducer = (state: UserState = INITIAL_STATE, action: { type: any; payload: any; }) => {
     switch (action.type) {
         case 'SET_CURRENT_USER':
             return {

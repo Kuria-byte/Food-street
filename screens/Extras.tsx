@@ -5,6 +5,8 @@
 //   {label: 'Lahore', value: '2'}
 // ]);
 
+import { State } from "react-native-gesture-handler"
+
 
 // const [openD, setOpenD] = useState(false);
 // const [valueD, setValueD] = useState(null);
@@ -45,3 +47,34 @@
     // const [City, SetCity] = React.useState("1");
   // const [district, setDistrict] = React.useState("1");
   // const [subdivision, setSubDivision] = React.useState("1");
+
+            // dispatch({ type: "SET_CURRENT_USER", fName, lName, email, phone, valueCity, ValueDis, subDivValue })
+              // setresponse(xmlObject.int)
+
+
+              
+
+// import { Middleware } from 'redux'
+// import logger from 'redux-logger';
+// import rootReducer from './RootReducer';
+
+// const middlewares = [];
+
+// if( process.env.NODE_ENV === 'development'){
+// middlewares.push(logger)
+// }
+
+// export const exampleMiddleware: Middleware<
+//   {}, // Most middleware do not modify the dispatch return value
+//   RootState
+// > = storeApi => next => action => {
+//   const state = storeApi.getState() // correctly typed as RootState
+// }
+
+// Map State & Selectors
+
+  // let user = useSelector<UserState, UserState["CurrentUser"]> (state => state.CurrentUser)
+  // let {fName, lName, email, phone, valueCity, ValueDis, subDivValue} =user
+
+  // const user = useSelector((state: RootState) => state.CurrentUser);
+  //  let {fName, lName, email, phone, valueCity, ValueDis, subDivValue} =user.CurrentUser

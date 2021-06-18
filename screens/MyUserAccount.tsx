@@ -31,19 +31,22 @@ import SvgLogo from '../svgs/Login/SvgLogo';
 import SvgIconInfo from '../svgs/SignUp/SvgIconInfo';
 import SvgChecked from '../svgs/SvgChecked';
 import SvgSettings from '../svgs/Profile/SvgSettings';
+import { connect, useSelector } from 'react-redux';
+import { State as ReduxState } from '../Redux/root-reducer.types';
+import { UserState } from '../Redux/User/user-reducer';
+import { RootState } from '../Redux/Store';
 
 
-const data = {
-  avatar: require('../assets/Profile/avatar.png'),
-  userName: 'Ian Kuria',
-  gmail: 'ian@gmail.com',
-  numberNotification: '3',
-  walaPoint: '+601-456-4500',
-  orderHistory: true,
-};
 
-const Profile = memo(() => {
+
+const Profile= memo(() => {
   const navigation = useNavigation();
+
+  // let user = useSelector<UserState, UserState["CurrentUser"]> (state => state.CurrentUser)
+  // let {fName, lName, email, phone, valueCity, ValueDis, subDivValue} =user
+
+  const user = useSelector((state: RootState) => state.CurrentUser);
+   let {fName, lName, email, phone, valueCity, ValueDis, subDivValue} =user.CurrentUser
 
   const onOrderHistory = useCallback(() => {
     navigation.navigate('ProfileOrderHistory');
@@ -65,6 +68,18 @@ const Profile = memo(() => {
     navigation.navigate('SignUp');
   }, [navigation]);
 
+
+
+  let data = {
+    avatar: require('../assets/Profile/avatar.png'),
+    userName: fName,
+    gmail:  email,
+    numberNotification: '3',
+    walaPoint: phone,
+    orderHistory: true,
+  };
+
+  console.log(user.CurrentUser)
 
 
   return (
@@ -145,7 +160,12 @@ const Profile = memo(() => {
   );
 });
 
-export default Profile;
+// const mapStateToProps = (state:ReduxState ) => ({
+//   user: state.CurrentUser
+// });
+
+
+export default connect(null, null) (Profile);
 
 const styles = StyleSheet.create({
   container: {

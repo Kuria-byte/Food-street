@@ -17,13 +17,15 @@ import navigation from '../navigation';
 import { useNavigation } from '@react-navigation/native';
 import { parse } from 'fast-xml-parser';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../Redux/user/user-actions';
+import { State as ReduxState } from '../Redux/root-reducer.types';
+import { UserState } from '../Redux/User/user-reducer';
 
 
+const SignUpScreen: React.FC<UserState> =({CurrentUser}) => {
 
-const SignUpScreen = (CurrentUser: any) => {
-
+  const dispatch = useDispatch()
 
   let [data, setData] = React.useState({
     check_textInputChange: false,
@@ -31,8 +33,6 @@ const SignUpScreen = (CurrentUser: any) => {
     confirm_secureTextEntry: true,
   });
 
-
-  const dispatch = useDispatch()
 
 
   let [fName, setFname] = React.useState("");
@@ -139,14 +139,13 @@ const SignUpScreen = (CurrentUser: any) => {
         console.log(xmlObject.int)
         let response = xmlObject.int;
         if (response === 1) {
-          // dispatch({ type: "SET_CURRENT_USER", fName, lName, email, phone, valueCity, ValueDis, subDivValue })
+
           dispatch(setCurrentUser({fName, lName, email, phone, valueCity, ValueDis, subDivValue}))
-          console.log(CurrentUser)
 
         } else {
           console.log("error adding user")
         }
-        // setresponse(xmlObject.int)
+      
       } else {
         console.log("error")
       }
@@ -154,7 +153,8 @@ const SignUpScreen = (CurrentUser: any) => {
     xhr.send(params);
   }
 
-
+  
+  console.log(CurrentUser.fName)
 
 
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
@@ -515,12 +515,17 @@ const SignUpScreen = (CurrentUser: any) => {
 
 
 
-// const mapStateToProps = (state: { user: { CurrentUser: any; }; }) => ({
-//   user: state.user.CurrentUser
-// });
+
+const mapStateToProps = (state: ReduxState) => ({
+  CurrentUser: state.CurrentUser
+});
 
 
-export default connect(null, null)(SignUpScreen);
+
+
+
+
+export default connect(mapStateToProps, null)(SignUpScreen);
 
 const styles = StyleSheet.create({
   container: {
